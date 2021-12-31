@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setChart } from '../redux/contentSlice';
+import Hero from '../components/Home/Hero';
+import { useEffect } from 'react';
 
 export default function Home() {
   const chart = useAppSelector(state => state.content.chart);
@@ -10,26 +11,20 @@ export default function Home() {
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (chart) {
-      console.log(chart);
-    }
-  }, [chart])
-
-
-  const handleClick = async () => {
+  const getChart = async () => {
     const response = await axios.get('http://localhost:5000/chart');
     const data = response.data;
     dispatch(setChart(data));
   }
 
+  useEffect(() => {
+    getChart()
+  }, [])
+
   return (
     <div>
-      <button onClick={handleClick}>Click</button>
-
-      {results && results.data.map((result) => (
-          <h6 key={result.id}>{result.title}</h6>
-      ))}
+      <Hero />
+      {/* <button onClick={handleClick}>Get Chart</button> */}
     </div>
   );
 };

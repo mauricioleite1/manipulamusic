@@ -36,15 +36,22 @@ export default SearchBar;
 
 const Container = styled.div`
   align-items: center;
-  background: white;
-  border-radius: 28px;
+  // background: ;
+  // border-radius: 28px;
+  cursor: pointer;
   display: flex;
   flex: 0.5;
   justify-content: center;
   padding: 10px;
+  transition: 0.2s ease-in-out;
+
+  :hover {
+    background: white;
+  }
 `;
 
 const Input = styled.input`
+  background: transparent;
   border: none;
   flex: 1;
   outline: none;

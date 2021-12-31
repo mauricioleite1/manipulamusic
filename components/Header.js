@@ -26,7 +26,8 @@ export default Header;
 
 const Container = styled.header`
   align-items: center;
-  background: lightgrey;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px);
   display: flex;
   height: 3.2rem;
   justify-content: space-between;
@@ -34,6 +35,7 @@ const Container = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 99;
 `
 const LogoContainer = styled.div`
   flex: 0.3;
