@@ -1,0 +1,17 @@
+const express = require("express");
+const axios = require("axios");
+const cors = require("cors");
+
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+app.get('/chart', (req, res) => {
+    axios.get('https://api.deezer.com/chart/0')
+      .then(response => res.status(200).json(response.data))
+})
+
+app.listen(5000, () => {
+    console.log('rodando na porta 5000');
+});
