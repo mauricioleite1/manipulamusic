@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
@@ -10,6 +11,8 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
+      
       <div>
         {children}
       </div>
