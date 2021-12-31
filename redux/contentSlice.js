@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   chart: null,
-  results: [],
+  results: null,
 }
 
 const contentSlice = createSlice({
