@@ -1,14 +1,32 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useRef } from 'react';
 import {Search} from '@styled-icons/octicons/Search'
+import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
+import { setSearchResults } from '../redux/contentSlice';
+import styled from 'styled-components';
+import axios from 'axios';
 
 const SearchBar = () => {
+  const inputRef = useRef();
+  const dispatch = useAppDispatch();
+
+  const handleKeyDown = async ({ key }) => {
+    const { value } = inputRef.current;
+
+    if (key === 'Enter') {
+      const response = await axios.get(`http://localhost:5000/search?q=${value}`);
+      const data = response.data;
+      dispatch(setSearchResults(data));
+    }
+  };
+
   return (
     <Container>
       <Search size="14" />
       <Input
         type="text"
         placeholder="Busque por um artista, álbum, etc..."
+        ref={inputRef}
+        onKeyDown={handleKeyDown}
       />
     </Container>
   )
