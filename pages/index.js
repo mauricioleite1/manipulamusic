@@ -1,5 +1,6 @@
 import axios from 'axios';
 import styled from 'styled-components';
+import Image from 'next/image';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setChart } from '../redux/contentSlice';
 import Hero from '../components/Home/Hero';
@@ -24,7 +25,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      {/* <button onClick={handleClick}>Get Chart</button> */}
+
     </div>
   );
 };

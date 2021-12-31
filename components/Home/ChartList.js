@@ -7,12 +7,15 @@ const ChartList = () => {
   const chart = useAppSelector(state => state.content.chart);
   const results = useAppSelector(state => state.content.results);
 
-  console.log(results);
-
   return (
     <Container>
       {chart ? chart.tracks.data.map(track => (
-        <ChartTrack key={track.id} style={{ backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.9) 5%, transparent 35%), url(${track.album.cover_xl})` }}>
+        <ChartTrack
+          key={track.id} 
+          style={{ 
+            backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.9) 5%, transparent 35%), url(${track.album.cover_xl})`
+          }}
+        >
           <h4>{track.title}</h4>
           <h6>{track.artist.name}</h6>
 
@@ -29,7 +32,7 @@ export default ChartList;
 
 const Container = styled.div`
   display: flex;
-  gap: 30px;
+  gap: 20px;
   cursor: pointer;
   // background: red;
   padding-block: 10px;
@@ -42,9 +45,9 @@ const ChartTrack = styled.div`
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
-  height: 14rem;
-  width: 14rem;
-  border-radius: 6px;
+  height: 16rem;
+  width: 16rem;
+  border-radius: 8px;
   transition: 0.2s ease;
   padding: 10px;
 

@@ -27,8 +27,8 @@ export default Header;
 const Container = styled.header`
   align-items: center;
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid whitesmoke;
+  backdrop-filter: blur(26px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   height: 3.2rem;
   justify-content: space-between;

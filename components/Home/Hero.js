@@ -28,19 +28,30 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background: #e1e1e1;
   height: 26rem;
   padding: 2rem;
   margin: auto;
   position: relative;
   overflow: hidden;
+  width: 100%;
 
   h2 {
-    color: white;
-    font-weight: 500;
+    color: black;
+    font-weight: 900;
     letter-spacing: 0.1rem;
     position: absolute;
-    top: 2rem;
+    top: 2.6rem;
+    background: #121FCF;
+    background:
+    linear-gradient(
+      40deg,
+      rgba(65, 88, 208, 0.8) 0%,
+      rgba(200, 0, 192,0.9) 46%,
+      rgba(255, 204, 112,0.8) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 
