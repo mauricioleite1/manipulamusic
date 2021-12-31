@@ -2,16 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import {Globe} from '@styled-icons/octicons/Globe'
-// import SearchBar from './SearchBar';
-
+import SearchBar from './SearchBar';
 
 const Header = () => {
   return (
     <Container>
       <LogoContainer>ManipulaMusic</LogoContainer>
-      
-      {/* <SearchBar /> */}
-      
+
+      <SearchBar />
+           
       <Nav>
         <Link href="/">Home</Link>
         <Link href="/">Sobre</Link>
