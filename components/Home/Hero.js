@@ -28,27 +28,26 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-flow: row wrap;
-  background: #e1e1e1;
-  height: 26rem;
-  padding: 2rem;
+  background: whitesmoke;
+  padding-block: 3.6rem;
   margin: auto;
   position: relative;
   overflow: hidden;
-  width: 100%;
+  width: 80rem;
 
   h2 {
     color: black;
-    font-weight: 900;
+    font-weight: 500;
     letter-spacing: 0.1rem;
     position: absolute;
-    top: 2.6rem;
+    top: 2rem;
     background: #121FCF;
     background:
     linear-gradient(
       40deg,
-      rgba(65, 88, 208, 0.8) 0%,
-      rgba(200, 0, 192,0.9) 46%,
-      rgba(255, 204, 112,0.8) 100%
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(100, 100, 192,0.9) 46%,
+      rgba(100, 200, 100,0.8) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

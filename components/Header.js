@@ -32,7 +32,7 @@ const Container = styled.header`
   display: flex;
   height: 3.2rem;
   justify-content: space-between;
-  padding-inline: 40px;
+  padding-inline: 20rem;
   position: sticky;
   top: 0;
   width: 100%;

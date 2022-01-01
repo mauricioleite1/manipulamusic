@@ -42,6 +42,7 @@ const Container = styled.div`
 const ChartTrack = styled.div`
   background-size: cover;
   align-items: flex-start;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 14px, rgba(0, 0, 0, 0.1) 0px 2px 8px;
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
