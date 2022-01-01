@@ -12,6 +12,11 @@ app.get('/chart', (req, res) => {
     .then(response => res.status(200).json(response.data))
 })
 
+app.get('/genre', (req, res) => {
+  axios.get('https://api.deezer.com/genre')
+    .then(response => res.status(200).json(response.data))
+})
+
 app.get('/search', (req, res) => {
   const { q } = req.query;
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { LinkExternal } from '@styled-icons/octicons/LinkExternal'
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -23,7 +22,6 @@ const ChartListArtist = ({ position, link, mainText, secondaryText = null, image
           {secondaryText && <h6>{secondaryText}</h6>}
         </div>
 
-        {/* {showExternalIcon && } */}
         {showExternalIcon && (
           <ExtraInfo>
             <ArtistImage src={image} alt="" width={200} height={200} />
@@ -82,19 +80,19 @@ const ExtraInfo = styled.div`
   gap: 26px;
   left: 14rem;
   position: absolute;
-  padding: 2.5rem;
+  padding: 1rem 1rem 1rem;
   width: max-content;
   z-index: 99;
 `;
 
 const ArtistText = styled.div`
+  display: flex;
+  flex-flow: row wrap;
   font-family: Inter ,Outfit, sans-serif;
   font-size: 18px;
   font-weight: 600;
-  width: 190px;
-  display: flex;
-  flex-flow: row wrap;
   gap:4px;
+  width: 190px;
 
   h5 {
     font-size: 11px;

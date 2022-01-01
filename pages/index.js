@@ -2,13 +2,15 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
-import { setChart } from '../redux/contentSlice';
+import { setChart, setGenreList } from '../redux/contentSlice';
 import Hero from '../components/Home/Hero';
 import { useEffect } from 'react';
 import ChartListArtist from '../components/Home/ChartListArtist';
+import GenreSection from '../components/Home/GenreSection';
 
 export default function Home() {
   const chart = useAppSelector(state => state.content.chart);
+  const genre = useAppSelector(state => state.content.genre);
   const results = useAppSelector(state => state.content.results);
 
   const dispatch = useAppDispatch();
@@ -19,8 +21,15 @@ export default function Home() {
     dispatch(setChart(data));
   }
 
+  const getGenreList = async () => {
+    const response = await axios.get('http://localhost:5000/genre');
+    const data = response.data;
+    dispatch(setGenreList(data.data));
+  }
+
   useEffect(() => {
     getChart()
+    getGenreList()
   }, [])
 
   return (
@@ -74,6 +83,7 @@ export default function Home() {
 
       </ListsContainer>
 
+      { genre && <GenreSection /> }
 
     </Page>
   );
