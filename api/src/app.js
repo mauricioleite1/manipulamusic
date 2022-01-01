@@ -17,6 +17,13 @@ app.get('/genre', (req, res) => {
     .then(response => res.status(200).json(response.data))
 })
 
+app.get('/genre/:id', (req, res) => {
+  const {id} = req.params;
+
+  axios.get(`https://api.deezer.com/genre/${id}/artists`)
+    .then(response => res.status(200).json(response.data))
+})
+
 app.get('/search', (req, res) => {
   const { q } = req.query;
 

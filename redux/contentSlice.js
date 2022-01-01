@@ -4,6 +4,7 @@ const initialState = {
   chart: null,
   genre: null,
   results: null,
+  artistsByGenre: null,
 }
 
 const contentSlice = createSlice({
@@ -19,8 +20,11 @@ const contentSlice = createSlice({
     setSearchResults(state, action) {
       state.results = action.payload;
     },
-  }
+    setArtistsByGenre(state, action) {
+      state.artistsByGenre = action.payload;
+    },
+  },
 });
 
-export const { setChart, setGenreList, setSearchResults } = contentSlice.actions;
+export const { setChart, setGenreList, setSearchResults, setArtistsByGenre } = contentSlice.actions;
 export default contentSlice.reducer;
