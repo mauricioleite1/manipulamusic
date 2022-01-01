@@ -26,13 +26,13 @@ export default Header;
 
 const Container = styled.header`
   align-items: center;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(26px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   height: 3.2rem;
   justify-content: space-between;
-  padding-inline: 20rem;
+  padding-inline: 2rem;
   position: sticky;
   top: 0;
   width: 100%;

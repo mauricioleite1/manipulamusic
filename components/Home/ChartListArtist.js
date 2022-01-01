@@ -29,12 +29,8 @@ const ChartListArtist = ({ position, link, mainText, secondaryText = null, image
             <ArtistImage src={image} alt="" width={200} height={200} />
             <ArtistText>
               {mainText}
-
+              {secondaryText && <h5>por {secondaryText}</h5>}
             </ArtistText>
-            <h6>
-              Abrir em Deezer
-              <LinkExternal size={12} />
-            </h6>
           </ExtraInfo>
         )}
       </Container>
@@ -53,8 +49,8 @@ const Container = styled.div`
   height: 40px;
   padding: 8px;
   position: relative;
-  transition: 0.2s ease-in-out;
-  width: 18rem;
+  transition: 0.42s ease-in-out;
+  width: 20rem;
 
   :hover {
     background: rgba(255, 255, 255, 0.8);
@@ -73,35 +69,33 @@ const PositionText = styled.h5`
 `;
 
 const ExtraInfo = styled.div`
-  backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(38px);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 28px;
   border-top: 1px solid whitesmoke;
   border-left: 1px solid whitesmoke;
   bottom: 3rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 2px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 26px;
   left: 14rem;
   position: absolute;
   padding: 2.5rem;
   width: max-content;
   z-index: 99;
-
-  h6 {
-    align-items: center;
-    background: #6667ab;
-    border-radius: 8px;
-    color: whitesmoke;
-    display: flex;
-    font-weight: 300;
-    justify-content: center;
-  }
 `;
 
-const ArtistText = styled.h2`
+const ArtistText = styled.div`
   font-family: Inter ,Outfit, sans-serif;
   font-size: 18px;
-  width: 180px;
+  font-weight: 600;
+  width: 190px;
+  display: flex;
+  flex-flow: row wrap;
+  gap:4px;
+
+  h5 {
+    font-size: 11px;
+  }
 `;

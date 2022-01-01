@@ -45,12 +45,28 @@ export default function Home() {
         <ArtistsChart>
           Álbuns
           {chart &&
-            chart.albums.data.map(({ id, position, cover_big, title, link }) => (
+            chart.albums.data.map(({ id, position, cover_big, artist, title, link }) => (
               <ChartListArtist
                 position={position}
                 link={link}
                 mainText={title}
+                secondaryText={artist.name}
                 image={cover_big}
+                key={id}
+              />
+            ))}
+        </ArtistsChart>
+
+        <ArtistsChart>
+          Playlists
+          {chart &&
+            chart.playlists.data.map(({ id, position, picture_big, user, title, link }) => (
+              <ChartListArtist
+                position={position}
+                link={link}
+                mainText={title}
+                secondaryText={user.name}
+                image={picture_big}
                 key={id}
               />
             ))}
