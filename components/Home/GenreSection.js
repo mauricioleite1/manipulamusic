@@ -21,6 +21,7 @@ const GenreSection = () => {
           </Genre>
         ))}
       </List>
+      
       <button onClick={() => setShowMore(!showMore)}>
         {!showMore ? <ArrowDown size={20} /> : <ArrowUp size={20} />}
       </button>
