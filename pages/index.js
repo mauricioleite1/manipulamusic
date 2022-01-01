@@ -31,12 +31,26 @@ export default function Home() {
         <ArtistsChart>
           Artistas
           {chart &&
-            chart.artists.data.map(({ id, position, picture_medium, name, link }) => (
+            chart.artists.data.map(({ id, position, picture_big, name, link }) => (
               <ChartListArtist
                 position={position}
                 link={link}
                 mainText={name}
-                image={picture_medium}
+                image={picture_big}
+                key={id}
+              />
+            ))}
+        </ArtistsChart>
+
+        <ArtistsChart>
+          Álbuns
+          {chart &&
+            chart.albums.data.map(({ id, position, cover_big, title, link }) => (
+              <ChartListArtist
+                position={position}
+                link={link}
+                mainText={title}
+                image={cover_big}
                 key={id}
               />
             ))}
