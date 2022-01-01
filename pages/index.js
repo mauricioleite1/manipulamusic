@@ -1,10 +1,11 @@
 import axios from 'axios';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setChart } from '../redux/contentSlice';
 import Hero from '../components/Home/Hero';
 import { useEffect } from 'react';
+import ChartListArtist from '../components/Home/ChartListArtist';
 
 export default function Home() {
   const chart = useAppSelector(state => state.content.chart);
@@ -29,40 +30,47 @@ export default function Home() {
       <ListsContainer>
         <ArtistsChart>
           Artistas
-          {chart && chart.artists.data.map(artist => (
-            <Artist key={artist.id}>
-              <h5>{artist.position}</h5>
-              <ArtistImage src={artist.picture_medium} alt="" width={26} height={26} />
-              <h5>{artist.name}</h5>
-            </Artist>
-          ))}
+          {chart &&
+            chart.artists.data.map(({ id, position, picture_big, name, link }) => (
+              <ChartListArtist
+                position={position}
+                link={link}
+                mainText={name}
+                image={picture_big}
+                key={id}
+              />
+            ))}
         </ArtistsChart>
 
         <ArtistsChart>
           Álbuns
-          {chart && chart.albums.data.map(album => (
-            <Artist key={album.id}>
-              <h5>{album.position}</h5>
-              <ArtistImage src={album.cover_medium} alt="" width={26} height={26} />
-              <div>
-                <h5>{album.title}</h5>
-                <h6>{album.artist.name}</h6>
-              </div>
-            </Artist>
-          ))}
+          {chart &&
+            chart.albums.data.map(({ id, position, cover_big, artist, title, link }) => (
+              <ChartListArtist
+                position={position}
+                link={link}
+                mainText={title}
+                secondaryText={artist.name}
+                image={cover_big}
+                key={id}
+              />
+            ))}
         </ArtistsChart>
 
         <ArtistsChart>
-          Artistas
-          {chart && chart.artists.data.map(artist => (
-            <Artist key={artist.id}>
-              <h5>{artist.position}</h5>
-              <ArtistImage src={artist.picture_medium} alt="" width={26} height={26} />
-              <h5>{artist.name}</h5>
-            </Artist>
-          ))}
+          Playlists
+          {chart &&
+            chart.playlists.data.map(({ id, position, picture_big, user, title, link }) => (
+              <ChartListArtist
+                position={position}
+                link={link}
+                mainText={title}
+                secondaryText={user.name}
+                image={picture_big}
+                key={id}
+              />
+            ))}
         </ArtistsChart>
-
 
       </ListsContainer>
 
@@ -90,28 +98,6 @@ flex-direction: column;
   // background: purple;
   // width: 80rem;
   // margin-inline: auto;
-`;
-
-const Artist = styled.div`
-// background: #6667ab;
-  align-items: center;
-  display: flex;
-  gap: 6px;
-  border-radius: 28px;
-  width: 22rem;
-  height: 40px;
-  // border: 1px solid lightgrey;
-  padding: 8px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-
-  :hover {
-    background: rgba(255, 255, 255, 0.8);
-  }
-`;
-
-const ArtistImage = styled(Image)`
-  border-radius: 50%;
 `;
 
 const ListsContainer = styled.div`
