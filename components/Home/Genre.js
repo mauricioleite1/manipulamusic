@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { useAppDispatch } from '../../redux/app/hooks.ts';
 import { setArtistsByGenre } from '../../redux/contentSlice';
+import Link from 'next/link';
 
 const Genre = ({ id, name, picture }) => {
   const dispatch = useAppDispatch();
@@ -14,12 +15,14 @@ const Genre = ({ id, name, picture }) => {
   }
 
   return (
-    <Container
-      style={{ backgroundImage: `url(${picture})` }}
-      onClick={handleClick}
-    >
-      <h4>{name}</h4>
-    </Container>
+    <Link href={ `/genre/${id}` } passHref>
+      <Container
+        style={{ backgroundImage: `url(${picture})` }}
+        onClick={handleClick}
+      >
+        <h4>{name}</h4>
+      </Container>
+    </Link>
   );
 };
 
