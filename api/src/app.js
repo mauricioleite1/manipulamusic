@@ -8,10 +8,17 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/chart', (req, res) => {
-    axios.get('https://api.deezer.com/chart/0')
-      .then(response => res.status(200).json(response.data))
+  axios.get('https://api.deezer.com/chart/0')
+    .then(response => res.status(200).json(response.data))
+})
+
+app.get('/search', (req, res) => {
+  const { q } = req.query;
+
+  axios.get(`https://api.deezer.com/search?q=${q}`)
+    .then(response => res.status(200).json(response.data))
 })
 
 app.listen(5000, () => {
-    console.log('rodando na porta 5000');
+  console.log('rodando na porta 5000');
 });

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  chart: [],
+  chart: null,
+  results: [],
 }
 
 const contentSlice = createSlice({
@@ -11,8 +12,11 @@ const contentSlice = createSlice({
     setChart(state, action) {
       state.chart = action.payload;
     },
+    setSearchResults(state, action) {
+      state.results = action.payload;
+    },
   }
 });
 
-export const { setChart } = contentSlice.actions;
+export const { setChart, setSearchResults } = contentSlice.actions;
 export default contentSlice.reducer;
