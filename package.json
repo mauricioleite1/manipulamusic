@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
+    "@styled-icons/entypo-social": "^10.34.0",
+    "@styled-icons/fa-brands": "^10.38.0",
     "@styled-icons/octicons": "^10.44.0",
     "axios": "^0.24.0",
     "cors": "^2.8.5",

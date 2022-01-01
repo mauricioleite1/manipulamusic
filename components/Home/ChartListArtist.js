@@ -47,7 +47,7 @@ const Container = styled.div`
   display: flex;
   gap: 6px;
   height: 40px;
-  padding: 8px;
+  padding-block: 8px;
   position: relative;
   transition: 0.42s ease-in-out;
   width: 20rem;
@@ -58,7 +58,7 @@ const Container = styled.div`
 `;
 
 const ArtistImage = styled(Image)`
-  border-radius: 50%;
+  border-radius: 18px;
 `;
 
 const PositionText = styled.h5`
@@ -69,15 +69,16 @@ const PositionText = styled.h5`
 `;
 
 const ExtraInfo = styled.div`
-  backdrop-filter: blur(38px);
   background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(26px);
   border-radius: 28px;
   border-top: 1px solid whitesmoke;
   border-left: 1px solid whitesmoke;
   bottom: 3rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 2px;
+  box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 2px;
   display: flex;
   flex-direction: column;
+  opacity: 1;
   gap: 26px;
   left: 14rem;
   position: absolute;
