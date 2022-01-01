@@ -31,12 +31,10 @@ export default ChartList;
 
 
 const Container = styled.div`
+  cursor: pointer;
   display: flex;
   gap: 20px;
-  cursor: pointer;
-  // background: red;
-  padding-block: 10px;
-  // width: 150vw;
+  margin-top: 40px;
 `;
 
 const ChartTrack = styled.div`

@@ -37,10 +37,11 @@ const Container = styled.div`
 
   h2 {
     color: black;
-    font-weight: 500;
+    font-weight: 900;
     letter-spacing: 0.1rem;
+    font-size: 32px;
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     background: #121FCF;
     background:
     linear-gradient(

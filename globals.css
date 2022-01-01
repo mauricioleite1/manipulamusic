@@ -24,10 +24,9 @@ a {
   transition: 0.2s ease;
 }
 
-a:hover {
+footer a:hover {
   opacity: 0.8;
 }
-
 
 h2 {
   margin: 0;

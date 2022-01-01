@@ -82,8 +82,6 @@ export default function Home() {
 const Page = styled.div`
   background: white;
   margin: auto;
-  height: 120vh;
-  // width: 80rem;
 
   h5 {
     font-family: Inter;
@@ -108,6 +106,6 @@ const ListsContainer = styled.div`
   background-color: #85FFBD;
   background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
-  gap: 20px;
+  gap: 60px;
   width: 100%;
 `;

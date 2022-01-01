@@ -11,31 +11,28 @@ const Footer = () => {
 
   return (
     <Container>
-      <TopSection>
-        Links e etc
-      </TopSection>
 
-      <Info>
         ManipulaMusicLogo
 
 
         <Nav>
           <a href="https://www.linkedin.com/in/mauricioleite" target="_blank" rel="noreferrer">
-            <socialIcon.Linkedin size={18} />
+            <socialIcon.Linkedin size={16} />
           </a>
           <a href="https://www.github.com/mauricioleite1" target="_blank" rel="noreferrer">
-            <socialIcon.Github size={18} />
+            <socialIcon.Github size={16} />
           </a>
           <a href="https://www.instagram.com/mauricioleite1" target="_blank" rel="noreferrer">
-            <socialIcon.Instagram size={18} />
+            <socialIcon.Instagram size={16} />
           </a>
         </Nav>
         <h5>
-          {year}. Maurício Leite<br></br> Conteúdo fornecido por
+          Desenvolvido por Maurício Leite. {year}
+          <br></br>
+          Não possuo direitos sobre o conteúdo utilizado aqui. Todo conteúdo é fornecido por
           <a href="https://www.deezer.com" target="_blank" rel="noreferrer"> <Deezer size={18} /> Deezer</a>
+          <br></br>
         </h5>
-      </Info>
-
     </Container>
   )
 }
@@ -49,22 +46,17 @@ const Container = styled.footer`
   color: whitesmoke;
   display: flex;
   flex-direction: column;
-  height: 18rem;
+  height: 13rem;
   justify-content: space-between;
-  padding: 1rem 4rem;
+  padding-inline: 20rem;
+  padding-block: 4.5rem 1rem;
   
   h5 {
-    text-align: right;
+    text-align: center;
     font-family: Inter;
     font-size: 12px;
     font-weight: 200;
   }
-`;
-
-const TopSection = styled.section`
-  // height: 100%;
-  width: 100%;
-  background-color: purple;
 `;
 
 const Nav = styled.nav`
@@ -75,11 +67,4 @@ const Nav = styled.nav`
   display: flex;
   gap: 16px;
   padding: 4px 20px;
-`;
-
-const Info = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
 `;
