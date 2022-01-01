@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Header from './Header';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
   return (
@@ -16,6 +17,8 @@ const Layout = ({ children }) => {
       <div>
         {children}
       </div>
+
+      <Footer />
     </>
   );
 };
