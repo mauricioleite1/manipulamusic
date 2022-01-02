@@ -5,30 +5,28 @@ import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../../redux/app/hooks.ts';
 import { setArtistsByGenre } from '../../redux/contentSlice';
 import { ArrowLeft } from '@styled-icons/octicons/ArrowLeft';
+import { GenrePageText } from '../../language';
 import Card from '../../components/Card';
 
 const GenrePage = () => {
   const [showCategories, setShowCategories] = useState(false);
 
   const genre = useAppSelector(state => state.content.genre);
+  const language = useAppSelector(state => state.userPreferences.language)
   const artistsByGenre = useAppSelector(state => state.content.artistsByGenre);
   const dispatch = useAppDispatch();
-
-  const handleMouseOut = () => {
-    setShowCategories(false)
-  };
 
   return (
     <Page>
       <Breadcrumbs>
         <Link href="/" passHref>
           <ReturnButton>
-            <ArrowLeft size={16} />Voltar
+            <ArrowLeft size={16} />{GenrePageText.back[language]}
           </ReturnButton>
         </Link>
 
         <BreadcrumbsCategories>
-          <h4 onClick={() => setShowCategories(!showCategories)}>Categorias</h4>
+          <h4 onClick={() => setShowCategories(!showCategories)}>{GenrePageText.categories[language]}</h4>
         </BreadcrumbsCategories>
 
         {showCategories && (

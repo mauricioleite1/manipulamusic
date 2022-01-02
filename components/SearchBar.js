@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import {Search} from '@styled-icons/octicons/Search'
+import { Search } from '@styled-icons/octicons/Search'
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setSearchResults } from '../redux/contentSlice';
+import { HeaderText } from '../language';
 import styled from 'styled-components';
 import axios from 'axios';
 
 const SearchBar = () => {
+  const language = useAppSelector(state => state.userPreferences.language)
   const inputRef = useRef();
   const dispatch = useAppDispatch();
 
@@ -24,7 +26,7 @@ const SearchBar = () => {
       <Search size="14" />
       <Input
         type="text"
-        placeholder="Busque por um artista, álbum, etc..."
+        placeholder={HeaderText.searchPlaceholder[language]}
         ref={inputRef}
         onKeyDown={handleKeyDown}
       />

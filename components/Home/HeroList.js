@@ -59,7 +59,7 @@ const HeroList = ({ data }) => {
                 O seu navegador não suporta o elemento <code>audio</code>.
               </audio>
               <a href={link} target="_blank" rel="noreferrer">
-                <Button>Ouvir no <Deezer size={18} /><strong>Deezer</strong></Button>
+                <Button>{HomeText.hearAtDeezer[language]} <Deezer size={18} /><strong>Deezer</strong></Button>
               </a>
             </Preview>
           </Track>
