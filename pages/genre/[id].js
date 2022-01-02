@@ -22,7 +22,9 @@ const GenrePage = () => {
     <Page>
       <Breadcrumbs>
         <Link href="/" passHref>
-          <ReturnButton><ArrowLeft size={16} />Voltar</ReturnButton>
+          <ReturnButton>
+            <ArrowLeft size={16} />Voltar
+          </ReturnButton>
         </Link>
 
         <BreadcrumbsCategories>

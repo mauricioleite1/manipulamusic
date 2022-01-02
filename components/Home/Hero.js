@@ -1,22 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../../redux/app/hooks.ts';
-import ChartList from './ChartList';
+import HeroList from './HeroList';
 
 const Hero = () => {
   const chart = useAppSelector(state => state.content.chart);
-  const results = useAppSelector(state => state.content.results);
-
-  useEffect(() => {
-    if (chart) {
-      console.log(chart);
-    }
-  }, [chart])
 
   return (
     <Container>
       { chart ? <h2>As mais tocadas</h2> : <h2>Carregando...</h2> }
-      <ChartList />
+      <HeroList data={chart} />
     </Container>
   );
 };
@@ -27,12 +20,6 @@ const Container = styled.div`
   padding: 80px;
 
   h2 {
-    color: black;
-    font-weight: 900;
-    letter-spacing: 0.1rem;
-    font-size: 32px;
-    position: absolute;
-    top: 3rem;
     background: #121FCF;
     background:
     linear-gradient(
@@ -43,6 +30,12 @@ const Container = styled.div`
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    font-weight: 700;
+    left: 13rem;
+    letter-spacing: 0.1rem;
+    position: absolute;
+    top: 7rem;
   }
 `;
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { Deezer } from '@styled-icons/fa-brands/Deezer'
 import * as socialIcon from '@styled-icons/entypo-social';
 import Logo from './Logo';
@@ -47,7 +46,7 @@ const Container = styled.footer`
   height: 13rem;
   justify-content: space-between;
   padding-inline: 20rem;
-  padding-block: 1rem 1rem;
+  padding-block: 2.5rem 1rem;
   
   h5 {
     text-align: center;

@@ -11,7 +11,7 @@ const Header = () => {
       <Logo />
 
       <SearchBar />
-
+      
       <Globe size="14" />
     </Container>
   );
