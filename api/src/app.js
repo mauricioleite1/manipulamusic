@@ -25,9 +25,9 @@ app.get('/genre/:id', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  const { q } = req.query;
+  const { q, index } = req.query;
 
-  axios.get(`https://api.deezer.com/search?q=${q}`)
+  axios.get(`https://api.deezer.com/search?q=${q}&index=${index}`)
     .then(response => res.status(200).json(response.data))
 })
 

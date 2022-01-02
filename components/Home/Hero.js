@@ -5,12 +5,13 @@ import HeroList from './HeroList';
 
 const Hero = () => {
   const chart = useAppSelector(state => state.content.chart);
+  const results = useAppSelector(state => state.content.results);
   const language = useAppSelector(state => state.userPreferences.language);
 
   return (
     <Container>
       {chart
-        ? <HeroList data={chart} />
+        ? <HeroList data={ results ? results : chart.tracks } />
         : <h2>Carregando...</h2>
       }
     </Container>

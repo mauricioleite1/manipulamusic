@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Search } from '@styled-icons/octicons/Search'
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
-import { setSearchResults } from '../redux/contentSlice';
+import { setSearchResults, setResults, setSearchInput } from '../redux/contentSlice';
 import { HeaderText } from '../language';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -15,9 +15,11 @@ const SearchBar = () => {
     const { value } = inputRef.current;
 
     if (key === 'Enter') {
-      const response = await axios.get(`http://localhost:5000/search?q=${value}`);
+      const response = await axios.get(`http://localhost:5000/search?q=${value}&index=0`);
       const data = response.data;
       dispatch(setSearchResults(data));
+      dispatch(setResults(data.data));
+      dispatch(setSearchInput(value));
     }
   };
 
@@ -39,7 +41,7 @@ export default SearchBar;
 const Container = styled.div`
   align-items: center;
   // background: ;
-  // border-radius: 28px;
+  border-radius: 28px;
   cursor: pointer;
   display: flex;
   flex: 0.5;
