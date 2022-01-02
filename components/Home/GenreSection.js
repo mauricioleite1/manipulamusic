@@ -18,7 +18,7 @@ const GenreSection = () => {
             key={id}
             id={id}
             name={name}
-            picture={picture_big}            
+            picture={picture_big}       
           />
         ))}
       </List>
@@ -41,7 +41,7 @@ const Container = styled.section`
   justify-content: center;
   margin: auto;
   padding: 30px;
-  width: 70%;
+  width: 65%;
 
   button {
     background: lightgrey;
@@ -60,6 +60,6 @@ const List = styled.section`
   flex-flow: row wrap;
   gap: 14px;
   justify-content: center;
-  height: 210px;
+  height: 100px;
   overflow: hidden;
 `;
