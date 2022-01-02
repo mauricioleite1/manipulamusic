@@ -2,7 +2,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
-import { setChart, setGenreList } from '../redux/contentSlice';
+import { setChart, setGenreList, setResults } from '../redux/contentSlice';
 import Hero from '../components/Home/Hero';
 import { useEffect } from 'react';
 import ChartListArtist from '../components/Home/ChartListArtist';
@@ -21,6 +21,7 @@ export default function Home() {
     const response = await axios.get('http://localhost:5000/chart');
     const data = response.data;
     dispatch(setChart(data));
+    dispatch(setResults(data.tracks.data));
   }
 
   const getGenreList = async () => {

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Search } from '@styled-icons/octicons/Search'
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setSearchResults, setResults, setSearchInput } from '../redux/contentSlice';
+import { setIsLoading } from '../redux/pageSlice';
 import { HeaderText } from '../language';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -15,11 +16,13 @@ const SearchBar = () => {
     const { value } = inputRef.current;
 
     if (key === 'Enter') {
+      dispatch(setIsLoading(true))
       const response = await axios.get(`http://localhost:5000/search?q=${value}&index=0`);
       const data = response.data;
       dispatch(setSearchResults(data));
       dispatch(setResults(data.data));
       dispatch(setSearchInput(value));
+      dispatch(setIsLoading(false))
     }
   };
 

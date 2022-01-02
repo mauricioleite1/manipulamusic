@@ -12,22 +12,16 @@ import { setResults } from '../../redux/contentSlice';
 const HeroList = ({ data }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(25);
+  const [hasMore, setHasMore] = useState(true);
+
   const language = useAppSelector(state => state.userPreferences.language);
   const resultsList = useAppSelector(state => state.content.resultsList);
   const searchInput = useAppSelector(state => state.content.search)
   const dispatch = useAppDispatch();
 
-  // const top3 = (data.tracks.data.slice(0, 5));
-  
-  
-  // const getMore = async () => {    
-  //   const response = await axios.get(`http://localhost:5000/search?q=${searchInput}&index=${page}`);
-  //   setLoading(true)
-  //   dispatch(setResults([...resultsList, ...response.data.data]));
-  //   setPage(page + 25)
+  const isLoading = useAppSelector(state => state.page.isLoading);
 
-  //   setLoading(false)
-  // }
+  const top3 = (resultsList.slice(0, 5));
 
   const observer = useRef();
   const lastElement = useCallback(node => {
@@ -35,18 +29,20 @@ const HeroList = ({ data }) => {
     if (observer.current) observer.current.disconnect
     observer.current = new IntersectionObserver(async (entries) => {
       if (entries[0].isIntersecting) {
-        if (searchInput) {
+        if (hasMore && searchInput) {
           const response = await axios.get(`http://localhost:5000/search?q=${searchInput}&index=${page}`);
+          
           setLoading(true)
           dispatch(setResults([...resultsList, ...response.data.data]));
           setPage(page + 25)
-      
+          
+          if (response.data.data.length === 0) { setHasMore(false) }
           setLoading(false)
         }
       }
     })
     if (node) observer.current.observe(node)
-  }, [loading, resultsList, page, searchInput, dispatch]);
+  }, [loading, resultsList, page, searchInput, dispatch, hasMore]);
 
   const showTime = (duration) => {
     const hours = ~~(duration / 3600);
@@ -62,7 +58,7 @@ const HeroList = ({ data }) => {
 
   return (
     <Container>
-      {/* <Top3>
+      { !isLoading && <Top3>
         <Title>Top 5</Title>
         {data && top3.map(({ id, title, artist, album }) => (
           <Card
@@ -72,18 +68,18 @@ const HeroList = ({ data }) => {
             picture={album.cover_xl}
           />
         ))}
-        </Top3> */}
+        </Top3>}
 
       <List>
         <MaisTitle>
-          {resultsList.length === 10
+          {!isLoading && resultsList && resultsList.length === 10
             ? HomeText.mostPlayed[language]
-            : `Resultados de ${data.value}`
+            : isLoading ? 'Carregando' : `Resultados de ${searchInput}`
           }
           {/* <button onClick={getMore}>Click</button> */}
         </MaisTitle>
 
-        {resultsList && resultsList.map(({ id, link, duration, position, title, artist, preview }, index) => {
+        {!isLoading && resultsList && resultsList.map(({ id, link, duration, position, title, artist, preview }, index) => {
           if (resultsList.length === index + 1) {
             return (
               <Track
@@ -95,7 +91,9 @@ const HeroList = ({ data }) => {
                   <Button><Heart size={10} /></Button>
                   <div>
                     <h5>{title}</h5>
-                    <h6>{artist.name}</h6>
+                    <a href={link} alt="" target="_blank" rel="noreferrer">
+                      <h6>{artist.name}</h6>
+                    </a>
                   </div>
                   <h6>{showTime(duration)}</h6>
 
@@ -120,7 +118,9 @@ const HeroList = ({ data }) => {
                 <Button><Heart size={10} /></Button>
                 <div>
                   <h5>{title}</h5>
-                  <h6>{artist.name}</h6>
+                  <a href={artist.link} alt="" target="_blank" rel="noreferrer">
+                      <h6>{artist.name}</h6>
+                    </a>
                 </div>
                 <h6>{showTime(duration)}</h6>
 
@@ -137,6 +137,8 @@ const HeroList = ({ data }) => {
             </Track>)
         }
         )}
+
+        {isLoading && <h5>Buscando resultados, Favor aguardar</h5>}
       </List>
     </Container>
   )
@@ -159,7 +161,7 @@ width: 100%;
 padding-top: 4rem;
 
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   gap: 40px;
 `;
 
