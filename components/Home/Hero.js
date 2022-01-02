@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../../redux/app/hooks.ts';
+import { GeneralText } from '../../language';
 import HeroList from './HeroList';
 
 const Hero = () => {
@@ -12,7 +13,7 @@ const Hero = () => {
     <Container>
       {chart
         ? <HeroList data={ results ? results : chart.tracks } />
-        : <h2>Carregando...</h2>
+        : <h2>{GeneralText.loading[language]}</h2>
       }
     </Container>
   );

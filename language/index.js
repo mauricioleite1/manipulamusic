@@ -1,3 +1,10 @@
+export const GeneralText = {
+  loading: {
+    ptBR: 'Carregando...',
+    en: 'Loading...',
+  }
+}
+
 export const HomeText = {
   top5: 'Top 5',
   mostPlayed: {
@@ -23,6 +30,10 @@ export const HomeText = {
   playlists: {
     ptBR: 'Playlists',
     en: 'Playlists',
+  },
+  cantReproduce: {
+    ptBR: 'O seu navegador não suporta o elemento ',
+    en: 'Your browser can not reproduce this ',
   }
 }
 
@@ -35,8 +46,8 @@ export const GenreSectionText = {
 
 export const HeaderText = {
   searchPlaceholder: {
-    ptBR: 'Busque por um artista, álbum, playlist, etc...',
-    en: 'Search for an artist, album, playlist, etc...',
+    ptBR: 'Faça sua busca aqui',
+    en: 'Search here',
   }
 }
 

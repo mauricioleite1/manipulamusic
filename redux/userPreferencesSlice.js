@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   language: 'ptBR',
+  favorites: null,
 }
 
 const userPreferencesSlice = createSlice({
@@ -11,8 +12,11 @@ const userPreferencesSlice = createSlice({
     setLanguage(state, action) {
       state.language = action.payload;
     },
+    addFavorite(state, action) {
+      state.favorites = action.payload;
+    }
   },
 });
 
-export const { setLanguage } = userPreferencesSlice.actions;
+export const { setLanguage, addFavorite } = userPreferencesSlice.actions;
 export default userPreferencesSlice.reducer;
