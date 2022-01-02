@@ -19,8 +19,8 @@ const Hero = () => {
 export default Hero;
 
 const Container = styled.div`
-  padding: 4rem;
-
+  // padding-top: 4rem;
+  color: grey;
   h2 {
     
   }

@@ -28,13 +28,14 @@ export default GenreSection;
 
 const Container = styled.section`
   align-items: center;
+  background: #d4d4d4;
   display: flex;
   flex-direction: column;
   gap: 30px;
   justify-content: center;
   margin: auto;
   padding: 100px;
-  width: 75%;
+  width: 100%;
 
   button {
     background: lightgrey;
