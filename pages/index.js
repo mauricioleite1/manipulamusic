@@ -100,9 +100,8 @@ const Page = styled.div`
 `;
 
 const ArtistsChart = styled.div`
-display: flex;
-flex-direction: column;
-  // gap: 10px;
+  display: flex;
+  flex-direction: column;
   // background: purple;
   // width: 80rem;
   // margin-inline: auto;
@@ -116,6 +115,6 @@ const ListsContainer = styled.div`
   background-color: #85FFBD;
   background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
-  gap: 60px;
+  gap: 100px;
   width: 100%;
 `;

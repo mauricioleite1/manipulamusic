@@ -74,12 +74,11 @@ const Page = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 6rem;
+  padding-bottom: 2rem;
 `;
 
 const Breadcrumbs = styled.div`
   align-items: center;
-  // background: red;
   display: flex;
   height: 6rem;
   gap: 10px;

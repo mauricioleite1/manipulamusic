@@ -44,11 +44,11 @@ const ChartTrack = styled.div`
   box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 14px, rgba(0, 0, 0, 0.1) 0px 2px 8px;
   display: flex;
   flex-direction: column;
-  height: 16rem;
+  height: 12rem;
   justify-content: flex-end;
   padding: 10px;
   transition: 0.2s ease;
-  width: 16rem;
+  width: 12rem;
 
   :hover {
     opacity: 0.9;
