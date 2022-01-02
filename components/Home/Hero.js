@@ -5,6 +5,7 @@ import HeroList from './HeroList';
 
 const Hero = () => {
   const chart = useAppSelector(state => state.content.chart);
+  const language = useAppSelector(state => state.userPreferences.language);
 
   return (
     <Container>

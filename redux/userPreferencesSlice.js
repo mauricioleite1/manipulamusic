@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  language: 'ptBR',
-
+  language: 'en',
 }
 
 const userPreferencesSlice = createSlice({

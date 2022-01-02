@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from '../Card';
+import { useAppSelector } from '../../redux/app/hooks.ts';
 import { Heart } from '@styled-icons/octicons/Heart'
 import { HeartFill } from '@styled-icons/octicons/HeartFill'
 import { Deezer } from '@styled-icons/fa-brands/Deezer'
 import { HomeText } from '../../language';
 
 const HeroList = ({ data }) => {
+  const language = useAppSelector(state => state.userPreferences.language);
+
   const top3 = (data.tracks.data.slice(0, 5));
 
   const showTime = (duration) => {
@@ -36,7 +39,7 @@ const HeroList = ({ data }) => {
       </Top3>
 
       <List>
-        <MaisTitle>{HomeText.mostPlayed.en}</MaisTitle>
+        <MaisTitle>{HomeText.mostPlayed[language]}</MaisTitle>
 
         {data && data.tracks.data.map(({ id, link, duration, position, title, artist, preview }) => (
           <Track key={id}>
