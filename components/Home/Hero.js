@@ -24,16 +24,7 @@ const Hero = () => {
 export default Hero;
 
 const Container = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
-  background: whitesmoke;
-  padding-block: 3.6rem;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-  width: 80rem;
+  padding: 80px;
 
   h2 {
     color: black;

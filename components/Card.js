@@ -26,11 +26,11 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 14px, rgba(0, 0, 0, 0.1) 0px 2px 8px;
 display: flex;
 cursor: pointer;
 flex-direction: column;
-height: 16rem;
+height: 14rem;
 justify-content: flex-end;
 padding: 10px;
 transition: 0.2s ease;
-width: 16rem;
+width: 18rem;
 
 :hover {
   opacity: 0.9;

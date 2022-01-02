@@ -116,5 +116,4 @@ const ListsContainer = styled.div`
   background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
   gap: 100px;
-  width: 100%;
 `;
