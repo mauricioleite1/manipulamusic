@@ -5,6 +5,7 @@ import { Globe } from '@styled-icons/octicons/Globe';
 import { HeartFill } from '@styled-icons/octicons/HeartFill';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setLanguage } from '../redux/userPreferencesSlice';
+import { GeneralText } from '../language';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
 import MediaQuery from "react-responsive";
@@ -12,6 +13,7 @@ import MediaQuery from "react-responsive";
 const Header = () => {
   const dispatch = useAppDispatch();
   const [showLanguageOptions, setShowLanguageOptions] = useState(false);
+  const language = useAppSelector(state => state.userPreferences.language);
 
   const chooseLanguage = (lang) => {
     dispatch(setLanguage(lang));
@@ -21,7 +23,7 @@ const Header = () => {
   return (
     <Container>
       <Logo />
-      <MediaQuery query='(min-width: 1024px)'>
+      <MediaQuery query='(min-width: 800px)'>
         <SearchBar />
 
         <div style={{ display: 'flex', gap: '40px' }}>
@@ -29,18 +31,26 @@ const Header = () => {
             <Favorites>
               <HeartFill size={14} />
 
-              <h5>Favoritos</h5>
+              <h5>{GeneralText.favorites[language]}</h5>
 
             </Favorites>
           </Link>
 
           <LanguageSelector>
             {showLanguageOptions && <div>
-              <h5 onClick={() => chooseLanguage('en')}>
+              <h5
+                onClick={() => {
+                  chooseLanguage('en')
+                  localStorage.setItem('language', 'en')
+                }}>
                 English
               </h5>
               <h5>/</h5>
-              <h5 onClick={() => chooseLanguage('ptBR')}>
+              <h5
+                onClick={() => {
+                  chooseLanguage('ptBR')
+                  localStorage.setItem('language', 'ptBR')
+                }}>
                 Português (Br)
               </h5>
             </div>}
@@ -72,7 +82,6 @@ const Container = styled.header`
   padding-inline: 3rem;
   position: sticky;
   top: 0;
-  // width: ;
   z-index: 99;
 
   @media(max-width: 1024px) {

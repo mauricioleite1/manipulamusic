@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { useAppSelector } from '../redux/app/hooks.ts';
+import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
+import { setLanguage } from '../redux/userPreferencesSlice';
 import { Deezer } from '@styled-icons/fa-brands/Deezer'
 import { FooterText } from '../language';
 import * as socialIcon from '@styled-icons/entypo-social';
@@ -12,9 +13,12 @@ import MediaQuery from "react-responsive";
 import SearchBar from './SearchBar';
 
 const Footer = () => {
+  const dispatch = useAppDispatch();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const language = useAppSelector(state => state.userPreferences.language);
   const year = new Date().getFullYear();
+
+  const chooseLanguage = (lang) => dispatch(setLanguage(lang));
 
   return (
     <>
@@ -65,7 +69,19 @@ const Footer = () => {
 
             </Link>
 
-            <icon.Globe size={24} color="#6f6f6f" />
+            <icon.Globe
+              size={24}
+              color="#6f6f6f"
+              onClick={() => {
+                if (language === 'en') {
+                  chooseLanguage('ptBR')
+                  localStorage.setItem('language', 'ptBR')
+                } else {
+                  chooseLanguage('en')
+                  localStorage.setItem('language', 'en')
+                }
+              }}
+            />
 
           </div>
 

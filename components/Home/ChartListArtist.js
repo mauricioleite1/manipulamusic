@@ -43,7 +43,7 @@ export default ChartListArtist;
 
 const Container = styled.div`
   align-items: center;
-  border-radius: 28px;
+  border-radius: 38px;
   cursor: pointer;
   display: flex;
   gap: 10px;
@@ -52,6 +52,15 @@ const Container = styled.div`
   position: relative;
   transition: 0.42s ease-in-out;
   width: 18rem;
+
+  @media(max-width: 1024px) {
+    align-items: center;
+    border: 1px solid lightgrey;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 12rem;
+    height: 8rem;
+  }
 
   :hover {
     background: rgba(100, 40, 250, 0.2);

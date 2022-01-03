@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useAppSelector, useAppDispatch } from '../../../redux/app/hooks.ts';
 import { setResults } from '../../../redux/contentSlice';
-import { HomeText } from '../../../language';
+import { HomeText, GeneralText } from '../../../language';
 import Track from '../Track';
 import TopList from './TopList';
 import LoadingSpinner from '../LoadingSpinner';
@@ -70,7 +70,7 @@ const HeroList = ({ data }) => {
           />)
         )}
 
-        {isLoading && <h4>Buscando resultados...</h4>}
+        {isLoading && <h4>{GeneralText.searching[language]}</h4>}
       </List>
     </Container>
   )
@@ -92,6 +92,7 @@ const Container = styled.section`
   @media(max-width: 1024px) {
     padding-top: 1rem;    
   }
+
 `;
 
 const MaisTitle = styled.h2`

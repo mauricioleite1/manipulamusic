@@ -2,24 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
+import { GeneralText } from '../language';
 import { ArrowLeft } from '@styled-icons/octicons/ArrowLeft';
 import Track from '../components/Home/Track';
 
 const Favorites = () => {
   const favorites = useAppSelector(state => state.userPreferences.favorites);
+  const language = useAppSelector(state => state.userPreferences.language);
   
   return (
     <Page>
-      <Breadcrumbs>
-        <Link href="/" passHref>
-          <ReturnButton>
-            <ArrowLeft size={16} />Voltar
-          </ReturnButton>
-        </Link>
-      </Breadcrumbs>
-
       <List>
-        Sua lista de favoritos
+        {GeneralText.favoritesList[language]}
         {favorites && favorites.map((favorite, index) => (
           <Track
             key={favorite.id}
@@ -68,18 +62,4 @@ const List = styled.ul`
   position: relative;
 
   audio { height: 20px; }
-`;
-
-const ReturnButton = styled.div`
-  cursor: pointer;
-`;
-
-const Breadcrumbs = styled.div`
-  display: flex;
-  gap: 20px;
-  left: 10px;
-  padding: 20px;
-  position: absolute;
-  top: 10px;
-  width: 100%;
 `;

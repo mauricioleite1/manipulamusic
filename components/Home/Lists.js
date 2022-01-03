@@ -64,15 +64,18 @@ const Container = styled.div`
   align-items: flex-start;
   display: flex;
   justify-content: center;
-  background: blue;
   background-color: white;
   // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
   width: 100%;
 
   @media(max-width: 1024px) {
-    background: gold;
-    flex-direction: column;
+    // background: gold;
+    // flex-direction: column;
+    flex-flow: row wrap;
+    padding: 0 1rem;
+    justify-content: space-between;
+   
   }
 `;
 
@@ -80,6 +83,15 @@ const Chart = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  gap: 10px;
+
+  @media(max-width: 1024px) {
+    padding-block: 40px;
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+  }
 
   h2 {
     margin-bottom: 20px;

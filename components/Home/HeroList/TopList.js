@@ -10,12 +10,13 @@ const TopList = ({ data }) => {
   return (
     <Container>
       <Title>Top 5</Title>
-      {data && top5.map(({ id, title, artist, album }) => (
+      {data && top5.map(({ id, title, artist, album, link }) => (
         <Card
           key={id}
           mainText={title}
           secondaryText={artist.name}
           picture={album.cover_xl}
+          link={link}
         />
       ))}
     </Container>
@@ -35,7 +36,11 @@ const Container = styled.div`
   margin: auto;
   
   @media(max-width: 1024px) {
-    height: 43.8rem;
+    // height: 20rem;
+    overflow: hidden;
+  }
+  @media(max-width: 800px) {
+    // height: 53.8rem;
     overflow: hidden;
   }
 `;

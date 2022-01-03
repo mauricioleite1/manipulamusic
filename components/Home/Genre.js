@@ -40,6 +40,11 @@ const Container = styled.div`
   padding: 10px 48px;
   transition: 0.2s ease-in-out;
 
+  @media(max-width: 1024px) {
+    width: 100vw:
+    padding-inline: 10px;
+  }
+
   :hover {
     opacity: 0.8;
   }

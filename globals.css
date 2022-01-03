@@ -31,6 +31,7 @@ h2 {
 
 ::-webkit-scrollbar {
   background: transparent;
+  height: 6px;
   width: 6px;
 }
 
