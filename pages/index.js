@@ -29,6 +29,7 @@ export default function Home() {
 const Page = styled.div`
   background: white;
   margin: auto;
+  width: 100%;
 
   h5 {
     font-family: Inter;

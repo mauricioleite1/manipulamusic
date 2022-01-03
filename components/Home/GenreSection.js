@@ -39,6 +39,10 @@ const Container = styled.section`
   padding: 100px;
   width: 100%;
 
+  @media(max-width: 1024px) {
+    // display: none;
+  }
+
   button {
     background: lightgrey;
     border: none;
@@ -56,6 +60,9 @@ const List = styled.section`
   flex-flow: row wrap;
   gap: 14px;
   justify-content: center;
-  // height: 100px;
   overflow: hidden;
+
+  @media(max-width: 1024px) {
+    gap: 10px;
+  }
 `;

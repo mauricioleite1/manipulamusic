@@ -2,6 +2,18 @@ export const GeneralText = {
   loading: {
     ptBR: 'Carregando...',
     en: 'Loading...',
+  },
+  favorites: {
+    ptBR: 'Favoritos',
+    en: 'Favorites',
+  },
+  favoritesList: {
+    ptBR: 'Suas músicas favoritas',
+    en: 'Your favorite songs'
+  },
+  searching: {
+    ptBR: 'Buscando...',
+    en: 'Searching...',
   }
 }
 

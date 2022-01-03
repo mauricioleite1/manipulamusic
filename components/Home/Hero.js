@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../../redux/app/hooks.ts';
 import { GeneralText } from '../../language';
+import LoadingSpinner from './LoadingSpinner';
 import HeroList from './HeroList';
 
 const Hero = () => {
@@ -13,8 +14,8 @@ const Hero = () => {
     <Container>
       {chart
         ? <HeroList data={ results ? results : chart.tracks } />
-        : <h2>{GeneralText.loading[language]}</h2>
-      }
+        : <LoadingSpinner />
+      }      
     </Container>
   );
 };
@@ -22,10 +23,14 @@ const Hero = () => {
 export default Hero;
 
 const Container = styled.div`
-  // padding-top: 4rem;
-  color: grey;
-  h2 {
-    
+align-items: center;
+color: grey;
+display: flex;
+justify-content: center;
+min-height: 50vh;
+width: 100%;
+
+  h4 {
+    font-weight: 300;
   }
 `;
-

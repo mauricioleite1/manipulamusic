@@ -76,6 +76,13 @@ const Container = styled.li`
     color: #1d1d1d;
     font-weight: 300;
   }
+
+  @media(max-width: 1024px) {
+    // background: gold;
+    flex-direction: column;
+    width: 100vw;
+    border-radius: 0;
+  }
 `;
 
 const TrackTitle = styled.div`
@@ -88,6 +95,11 @@ const TrackTitle = styled.div`
   h5 {
     color: rgb(57, 57, 57);
     font-weight: 600;
+
+    @media(max-width: 1024px) {
+      // background: gold;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -95,6 +107,10 @@ const Preview = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
+
+  @media(max-width: 1024px) {
+    // flex-direction: column;
+  }
 `;
 
 const DeezerButton = styled.button`

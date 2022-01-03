@@ -14,7 +14,7 @@ const userPreferencesSlice = createSlice({
     },
     setFavorites(state, action) {
       state.favorites = action.payload;
-    }
+    },
   },
 });
 
