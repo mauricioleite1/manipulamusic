@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import { useAppDispatch, useAppSelector } from '../redux/app/hooks.ts';
-import { setFavorites, setLanguage } from '../redux/userPreferencesSlice';
-import Head from 'next/head';
-import Header from './Header';
-import Footer from './Footer';
+import React, { useEffect } from "react";
+import Head from "next/head";
+import styled from "styled-components";
+import { useAppDispatch } from "../redux/app/hooks.ts";
+import { setFavorites, setLanguage } from "../redux/userPreferencesSlice";
+import Header from "./Header";
+import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   const dispatch = useAppDispatch();
-  const results = useAppSelector(state => state.content.results);
 
   useEffect(() => {
     if (localStorage.favorites) {
-      const storedFavorites = localStorage.getItem('favorites');
-      const selectedLanguage = localStorage.getItem('language');
-
+      const storedFavorites = localStorage.getItem("favorites");
+      const selectedLanguage = localStorage.getItem("language");
+      
       dispatch(setFavorites(JSON.parse(storedFavorites)));
       dispatch(setLanguage(selectedLanguage));
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -35,11 +34,11 @@ const Layout = ({ children }) => {
       </Main>
     </>
   );
-};
+}
 
 export default Layout;
 
 const Main = styled.main`
-  width: 100%;
   overflow-x: hidden;
+  width: 100%;
 `;

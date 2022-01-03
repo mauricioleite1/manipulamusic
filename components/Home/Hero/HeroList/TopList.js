@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useAppSelector } from '../../../redux/app/hooks.ts';
-import Card from '../../Card'
+import { useAppSelector } from '../../../../redux/app/hooks.ts';
+import Card from '../../../Card'
 
 const TopList = ({ data }) => {
   const resultsList = useAppSelector(state => state.content.resultsList);
@@ -51,7 +51,7 @@ const Title = styled.h2`
     linear-gradient(
       40deg,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(100, 200, 192,0.8) 46%,
+      #6667ab 46%,
       rgba(100, 200, 100,0.8) 100%
     );
     -webkit-background-clip: text;

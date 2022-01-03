@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Heart } from '@styled-icons/octicons/Heart';
-import { HeartFill } from '@styled-icons/octicons/HeartFill';
-import { Trash } from '@styled-icons/octicons/Trash';
-import { useAppSelector } from '../redux/app/hooks.ts';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Heart } from "@styled-icons/octicons/Heart";
+import { HeartFill } from "@styled-icons/octicons/HeartFill";
+import { Trash } from "@styled-icons/octicons/Trash";
+import { useAppSelector } from "../redux/app/hooks.ts";
 
 const FavoriteButton = ({ onClick, result }) => {
-  const [showConfirmation, setShowConfirmation] = useState(false)
-  const favorites = useAppSelector(state => state.userPreferences.favorites);
-  const isFavorite = favorites.find(favorite => result.id === favorite.id);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const favorites = useAppSelector((state) => state.userPreferences.favorites);
+  const isFavorite = favorites.find((favorite) => result.id === favorite.id);
 
   return (
     <>
-      { showConfirmation && <Confirmation>
-        <RemoveItem
-          size={12} 
-          onClick={() => {
-            onClick()
-            setShowConfirmation(false)
-          }
-          }
-        />
-      </Confirmation> }
+      {showConfirmation && (
+        <Confirmation>
+          <RemoveItem
+            size={12}
+            onClick={() => {
+              onClick();
+              setShowConfirmation(false);
+            }}
+          />
+        </Confirmation>
+      )}
       <Button>
-        {!isFavorite
-          ? <EmptyHeart size={12} onClick={onClick} />
-          : <FilledHeart size={12} onClick={() => setShowConfirmation(!showConfirmation)} />
-        }
+        {!isFavorite ? (
+          <EmptyHeart size={12} onClick={onClick} />
+        ) : (
+          <FilledHeart
+            size={12}
+            onClick={() => setShowConfirmation(!showConfirmation)}
+          />
+        )}
       </Button>
     </>
   );
@@ -36,9 +41,9 @@ export default FavoriteButton;
 
 const Button = styled.button`
   align-items: center;
-  background: linear-gradient(220deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background: linear-gradient(220deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
   border: none;
-  border-radius: 20px; 
+  border-radius: 20px;
   cursor: pointer;
   display: flex;
   font-size: 12px;
@@ -71,8 +76,7 @@ const FilledHeart = styled(HeartFill)`
 `;
 
 const Confirmation = styled.div`
-  display:flex;
-  // color: gold;
+  display: flex;
 `;
 
 const RemoveItem = styled(Trash)`

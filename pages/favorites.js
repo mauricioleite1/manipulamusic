@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
-import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
+import { useAppSelector } from '../redux/app/hooks.ts';
 import { GeneralText } from '../language';
-import { ArrowLeft } from '@styled-icons/octicons/ArrowLeft';
 import Track from '../components/Home/Track';
 
 const Favorites = () => {
@@ -14,7 +12,7 @@ const Favorites = () => {
     <Page>
       <List>
         {GeneralText.favoritesList[language]}
-        {favorites && favorites.map((favorite, index) => (
+        {favorites && favorites.map((favorite) => (
           <Track
             key={favorite.id}
             duration={favorite.duration}
@@ -61,5 +59,7 @@ const List = styled.ul`
   padding-top: 2rem;
   position: relative;
 
-  audio { height: 20px; }
+  audio { 
+    height: 20px;
+  }
 `;
