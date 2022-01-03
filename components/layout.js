@@ -10,8 +10,10 @@ const Layout = ({ children }) => {
   const results = useAppSelector(state => state.content.results)
 
   useEffect(() => {
-    const storedFavorites = localStorage.getItem('favorites');
-    dispatch(setFavorites(JSON.parse(storedFavorites)))
+    if (localStorage.favorites) {
+      const storedFavorites = localStorage.getItem('favorites');
+      dispatch(setFavorites(JSON.parse(storedFavorites)))
+    }
   }, [])
 
   return (
