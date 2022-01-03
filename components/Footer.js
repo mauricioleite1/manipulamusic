@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector } from '../redux/app/hooks.ts';
 import { Deezer } from '@styled-icons/fa-brands/Deezer'
+import { FooterText } from '../language';
 import * as socialIcon from '@styled-icons/entypo-social';
 import Logo from './Logo';
 
 const Footer = () => {
+  const language = useAppSelector(state => state.userPreferences.language);
   const year = new Date().getFullYear();
 
   return (
@@ -24,9 +27,9 @@ const Footer = () => {
         </a>
       </Nav>
       <h5>
-        Desenvolvido por Maurício Leite. {year}
+        {FooterText.developed[language]} {year}
         <br></br>
-        Não possuo direitos sobre o conteúdo utilizado aqui. Todo conteúdo é fornecido por
+        {FooterText.iDoNotOwn[language]}
         <a href="https://www.deezer.com" target="_blank" rel="noreferrer"> <Deezer size={18} /> Deezer</a>
         <br></br>
       </h5>

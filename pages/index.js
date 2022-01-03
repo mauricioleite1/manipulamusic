@@ -2,16 +2,18 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
-import { setChart, setGenreList } from '../redux/contentSlice';
+import { setChart, setGenreList, setResults } from '../redux/contentSlice';
 import Hero from '../components/Home/Hero';
 import { useEffect } from 'react';
 import ChartListArtist from '../components/Home/ChartListArtist';
 import GenreSection from '../components/Home/GenreSection';
+import { HomeText } from '../language';
 
 export default function Home() {
   const chart = useAppSelector(state => state.content.chart);
   const genre = useAppSelector(state => state.content.genre);
   const results = useAppSelector(state => state.content.results);
+  const language = useAppSelector(state => state.userPreferences.language)
 
   const dispatch = useAppDispatch();
 
@@ -19,6 +21,7 @@ export default function Home() {
     const response = await axios.get('http://localhost:5000/chart');
     const data = response.data;
     dispatch(setChart(data));
+    dispatch(setResults(data.tracks.data));
   }
 
   const getGenreList = async () => {
@@ -38,7 +41,7 @@ export default function Home() {
 
       <ListsContainer>
         <ArtistsChart>
-          Artistas
+          <h2>{HomeText.artists[language]}</h2>
           {chart &&
             chart.artists.data.map(({ id, position, picture_big, name, link }) => (
               <ChartListArtist
@@ -52,7 +55,7 @@ export default function Home() {
         </ArtistsChart>
 
         <ArtistsChart>
-          Álbuns
+          <h2>{HomeText.albums[language]}</h2>
           {chart &&
             chart.albums.data.map(({ id, position, cover_big, artist, title, link }) => (
               <ChartListArtist
@@ -67,7 +70,8 @@ export default function Home() {
         </ArtistsChart>
 
         <ArtistsChart>
-          Playlists
+          <h2>{HomeText.playlists[language]}</h2>
+
           {chart &&
             chart.playlists.data.map(({ id, position, picture_big, user, title, link }) => (
               <ChartListArtist
@@ -83,7 +87,7 @@ export default function Home() {
 
       </ListsContainer>
 
-      { genre && <GenreSection /> }
+      {genre && <GenreSection />}
 
     </Page>
   );
@@ -102,9 +106,11 @@ const Page = styled.div`
 const ArtistsChart = styled.div`
   display: flex;
   flex-direction: column;
-  // background: purple;
-  // width: 80rem;
-  // margin-inline: auto;
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
 `;
 
 const ListsContainer = styled.div`

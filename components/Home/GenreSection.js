@@ -2,21 +2,23 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useAppSelector } from '../../redux/app/hooks.ts';
 import Genre from './Genre';
+import { GenreSectionText } from '../../language';
 
 const GenreSection = () => {
   const [showMore, setShowMore] = useState(false);
   const genre = useAppSelector(state => state.content.genre);
+  const language = useAppSelector(state => state.userPreferences.language);
 
   return (
     <Container>
-      Explorar
+      {GenreSectionText.explore[language]}
       <List style={{ height: showMore && 'auto' }}>
         {genre && genre.map(({ id, name, picture_big }) => (
           <Genre
             key={id}
             id={id}
             name={name}
-            picture={picture_big}       
+            picture={picture_big}
           />
         ))}
       </List>

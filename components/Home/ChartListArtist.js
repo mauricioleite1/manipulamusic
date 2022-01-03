@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
+import { HomeText } from '../../language';
+import { useAppSelector } from '../../redux/app/hooks.ts'
 
 const ChartListArtist = ({ position, link, mainText, secondaryText = null, image }) => {
+  const language = useAppSelector(state => state.userPreferences.language)
   const [showExternalIcon, setShowExternalIcon] = useState(false);
 
   return (
@@ -27,7 +30,7 @@ const ChartListArtist = ({ position, link, mainText, secondaryText = null, image
             <ArtistImage src={image} alt="" width={200} height={200} />
             <ArtistText>
               {mainText}
-              {secondaryText && <h5>por {secondaryText}</h5>}
+              {secondaryText && <h5>{HomeText.by[language]} {secondaryText}</h5>}
             </ArtistText>
           </ExtraInfo>
         )}
