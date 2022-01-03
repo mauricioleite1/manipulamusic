@@ -1,4 +1,4 @@
-# ManipulaMusic
+# 🎵ManipulaMusic
 
 ## Por quê?
 **ManipulaMusic** é baseado no conteúdo fornecido pela [API do Deezer](https://developers.deezer.com/api)<br>
@@ -12,7 +12,7 @@
 <br>
 
 ## Como?
-O app foi feito em 6 dias corridos,
+🖥️ O app foi feito em 6 dias corridos,
 Onde existiam alguns requerimentos obrigatóris, possibilitando a criação de novas funcionalidades e design.
 
 - [Next.js](https://nextjs.org)
