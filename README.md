@@ -1,34 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ManipulaMusic
 
-## Getting Started
+## Por quê?
+**ManipulaMusic** é baseado no conteúdo fornecido pela [API do Deezer](https://developers.deezer.com/api)<br>
+É um app de visualização de músicas, artistas, álbuns, etc. Onde a pessoa usuário consegue, interagir fazendo suas próprias buscas, criando sua lista de favoritos, e consiga ouvir a prévia de qualquer música.
 
-First, run the development server:
+<br>
+
+## Para quê?
+🚀 Este app é um desafio proposto pela 💊[Manipulaê](https://manipulae.com.br), para vaga de __Desenvolvedor Frontend Jr__.
+
+<br>
+
+## Como?
+O app foi feito em 6 dias corridos,
+Onde existiam alguns requerimentos obrigatóris, possibilitando a criação de novas funcionalidades e design.
+
+- [Next.js](https://nextjs.org)
+- [React](https://reactjs.org)
+- [Redux](https://redux.js.org)
+- [Redux/Toolkit](https://redux-toolkit.js.org)
+- [Styled Components](https://styled-components.com)
+- [Styled Icons](https://styled-icons.dev/) 
+  - [Octicons](https://primer.style/octicons/)
+  - [Entypo](http://www.entypo.com)
+  - [FontAwesome Brand](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands)
+- [React-Responsive](https://www.npmjs.com/package/react-responsive)
+- [Axios](https://axios-http.com/)
+- [Node.js](https://nodejs.org)
+- [Express.js](https://expressjs.com/)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Yarn](https;//yarnpkg.com)
+
+<br>
+
+## Como iniciar o app
+Primeiramente, para iniciar o servidor backend e seja possível fazer requisições à API,
+Deve-se utilizar o comando:
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn start:dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Logo após, para iniciar a parte de frontend,
+Deve-se utilizar o comando:
+```bash
+yarn start:dev
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Com ambos backend e frontend da aplicação iniciados, abra [http://localhost:3000](http://localhost:3000) em seu browser para visualizar e utilizar a aplicação.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<br> 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Maiores desafios para o desenvolvimento
+O acesso à [API do Deezer](https://developers.deezer.com/api) necessita que sejam passados headers pelo backend,
+Para que então o domínio de desenvolvimento do app seja permitido e tenho livre acesso pelo CORS.
 
-## Learn More
+Foi desenvolvido então, com uso do Node.js + Express + Nodemon + Axios, um meio de se fazer requisições pelo backend.
 
-To learn more about Next.js, take a look at the following resources:
+Esse servidor precisa ser iniciado então, sempre que a app for iniciada.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🗨️ Feedback
+Este projeto foi feito como forma de avaliação e estudo em 6 dias, se você se interessou e deseja contribuir com seu feedback, fique à vontade para entrar em contato.
 
-## Deploy on Vercel
+Todas as formas de feedback são bem-vindas, sejam para
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+💛 Me influenciar e ensinar com novas técnicas e metodologias<br>
+🐛 Informar algum problema que tenha encontrado<br>
+📥 Enviar PRs para ajudar a resolver problemas ou adicionar mais recursos<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
