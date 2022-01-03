@@ -1,10 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
+import Track from '../components/Home/Track';
 
 const Favorites = () => {
+  const favorites = useAppSelector(state => state.userPreferences.favorites);
+
   return (
     <Page>
-      
+      <List>
+      Sua lista de favoritos
+        {favorites && favorites.map((favorite, index) => (
+          <Track
+            key={favorite.id}
+            duration={favorite.duration}
+            link={favorite.link}
+            name={favorite.artist.name}
+            preview={favorite.preview}
+            result={favorite}
+            title={favorite.title}
+          />)
+        )}
+      </List>
     </Page>
   );
 };
@@ -12,17 +29,32 @@ const Favorites = () => {
 export default Favorites;
 
 const Page = styled.section`
-  align-items: center;
-  justify-content: center;
-  background: #6667ab;
-  background-image: linear-gradient(233deg, #85FFBD 0%, #6667AB 100%);
-  width: 100%;
-  padding-top: 4rem;
-  height: 76vh;
-
+  align-items: flex-end;
+  background-image:
+    linear-gradient(
+      233deg,
+      #85FFBD 0%,
+      #6667AB 100%
+    );
   display: flex;
   flex-direction: column;
   gap: 40px;
+  justify-content: flex-end;
+  min-height: 76vh;
 `;
 
+const List = styled.ul`
+  align-items: center;
+  display: flex;
+  flex-direction column;
+  gap: 8px;
+  height: 30rem;
+  list-style-type: none;
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 2.5rem;
 
+  audio { height: 20px; }
+`;
