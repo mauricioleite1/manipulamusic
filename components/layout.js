@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch } from '../redux/app/hooks.ts';
+import { setFavorites } from '../redux/userPreferencesSlice';
 import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
 
 const Layout = ({ children }) => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favorites');
+    dispatch(setFavorites(JSON.parse(storedFavorites)))
+  }, [])
+
   return (
     <>
       <Head>

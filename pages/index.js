@@ -15,7 +15,7 @@ export default function Home() {
     if (!results || results >= 10) {
       initialInfo(dispatch);
     }
-  }, [dispatch])
+  }, [dispatch, results])
 
   return (
     <Page>

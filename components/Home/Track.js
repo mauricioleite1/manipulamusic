@@ -18,9 +18,11 @@ const Track = ({ result, position = '', title, link, name, duration, preview, la
 
     if (!isFavorite) {
       dispatch(setFavorites([...favorites, result]));
+      localStorage.setItem('favorites', JSON.stringify([...favorites, result]));
     } else {
       const removedItem = favorites.filter(favorite => result.id !== favorite.id);
       dispatch(setFavorites(removedItem));
+      localStorage.setItem('favorites', JSON.stringify(removedItem));
     }
   }
 
