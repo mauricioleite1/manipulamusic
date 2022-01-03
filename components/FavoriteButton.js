@@ -2,11 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { Heart } from '@styled-icons/octicons/Heart';
 import { HeartFill } from '@styled-icons/octicons/HeartFill';
+import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 
-const FavoriteButton = () => {
+const FavoriteButton = ({ onClick, result }) => {
+  const favorites = useAppSelector(state => state.userPreferences.favorites);
+  const isFavorite = favorites.find(favorite => result.id === favorite.id);
+
   return (
-    <Button>
-      <Heart size={10} />
+    <Button onClick={onClick}>
+      {!isFavorite
+        ? <EmptyHeart size={12} />
+        : <FilledHeart size={12} />
+      }
     </Button>
   );
 };
@@ -35,3 +42,16 @@ const Button = styled.button`
   }
 `;
 
+const EmptyHeart = styled(Heart)`
+  color: #ff004c;
+  :active {
+    transform: scale(1.3);
+  }
+`;
+
+const FilledHeart = styled(HeartFill)`
+  color: #ff004c;
+  :active {
+    transform: scale(1.3);
+  }
+`;

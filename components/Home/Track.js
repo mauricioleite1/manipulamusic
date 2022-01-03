@@ -1,20 +1,34 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useAppSelector } from '../../redux/app/hooks.ts';
+import { useAppSelector, useAppDispatch } from '../../redux/app/hooks.ts';
+import { setFavorites } from '../../redux/userPreferencesSlice';
 import { HomeText } from '../../language';
 import { Deezer } from '@styled-icons/fa-brands/Deezer';
 import { convertTime } from '../../services';
 import FavoriteButton from '../FavoriteButton';
 
-const Track = ({ position, title, link, name, duration, preview, lastElement, isLast }) => {
+const Track = ({ result, position, title, link, name, duration, preview, lastElement, isLast }) => {
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector(state => state.userPreferences.favorites);
   const language = useAppSelector(state => state.userPreferences.language);
   const cond = () => { if (isLast) { return lastElement } }
+
+  const addNewFavorite = () => {
+    const isFavorite = favorites.find(favorite => result.id === favorite.id);
+
+    if (!isFavorite) {
+      dispatch(setFavorites([...favorites, result]));
+    } else {
+      const removedItem = favorites.filter(favorite => result.id !== favorite.id);
+      dispatch(setFavorites(removedItem));
+    }
+  }
 
   return (
     <Container ref={cond()}>
       <TrackTitle>
         <h6>{position}</h6>
-        <FavoriteButton />
+        <FavoriteButton onClick={addNewFavorite} result={result} />
         <div>
           <h5>{title}</h5>
           <a href={link} alt="" target="_blank" rel="noreferrer">

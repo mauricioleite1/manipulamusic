@@ -51,17 +51,18 @@ const HeroList = ({ data }) => {
           }
         </MaisTitle>
 
-        {!isLoading && resultsList && resultsList.map(({ id, link, duration, position, title, artist, preview }, index) => (
+        {!isLoading && resultsList && resultsList.map((result, index) => (
           <Track
-            key={id}
-            duration={duration}
+            key={result.id}
+            duration={result.duration}
             isLast={resultsList.length === index + 1 ? true : false}
             lastElement={lastElement}
-            link={link}
-            name={artist.name}
-            position={position}
-            preview={preview}
-            title={title}
+            link={result.link}
+            name={result.artist.name}
+            position={result.position}
+            preview={result.preview}
+            result={result}
+            title={result.title}
           />)
         )}
 
