@@ -30,6 +30,7 @@ const Container = styled.div`
   @media(max-width: 800px) {
     text-align: center;
     width: 100vw;
+    padding: 0.4rem;
     // background: red;
   }
 `;

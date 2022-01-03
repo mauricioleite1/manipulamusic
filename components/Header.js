@@ -21,39 +21,39 @@ const Header = () => {
   return (
     <Container>
       <Logo />
+      <MediaQuery query='(min-width: 1024px)'>
+        <SearchBar />
 
-      <SearchBar />
+        <div style={{ display: 'flex', gap: '40px' }}>
+          <Link href="/favorites" passHref>
+            <Favorites>
+              <HeartFill size={14} />
 
-      <div style={{ display: 'flex', gap: '40px' }}>
-        <Link href="/favorites" passHref>
-          <Favorites>
-            <HeartFill size={14} />
-
-            <MediaQuery query='(min-width: 1024px)'>
               <h5>Favoritos</h5>
-            </MediaQuery>
 
-          </Favorites>
-        </Link>
+            </Favorites>
+          </Link>
 
-        <LanguageSelector>
-          {showLanguageOptions && <div>
-            <h5 onClick={() => chooseLanguage('en')}>
-              English
-            </h5>
-            <h5>/</h5>
-            <h5 onClick={() => chooseLanguage('ptBR')}>
-              Português (Br)
-            </h5>
-          </div>}
-          <Globe
-            size="14"
-            onClick={() => setShowLanguageOptions(!showLanguageOptions)}
-            style={{ cursor: 'pointer' }}
-          />
-        </LanguageSelector>
+          <LanguageSelector>
+            {showLanguageOptions && <div>
+              <h5 onClick={() => chooseLanguage('en')}>
+                English
+              </h5>
+              <h5>/</h5>
+              <h5 onClick={() => chooseLanguage('ptBR')}>
+                Português (Br)
+              </h5>
+            </div>}
+            <Globe
+              size="14"
+              onClick={() => setShowLanguageOptions(!showLanguageOptions)}
+              style={{ cursor: 'pointer' }}
+            />
+          </LanguageSelector>
 
-      </div>
+
+        </div>
+      </MediaQuery>
 
     </Container >
   );

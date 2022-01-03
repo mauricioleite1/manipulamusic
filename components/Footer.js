@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useAppSelector } from '../redux/app/hooks.ts';
@@ -12,6 +12,7 @@ import MediaQuery from "react-responsive";
 import SearchBar from './SearchBar';
 
 const Footer = () => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const language = useAppSelector(state => state.userPreferences.language);
   const year = new Date().getFullYear();
 
@@ -35,29 +36,33 @@ const Footer = () => {
           {FooterText.developed[language]} {year}
           <br></br>
           {FooterText.iDoNotOwn[language]}
-          <a href="https://www.deezer.com" target="_blank" rel="noreferrer"> <Deezer size={18} /> Deezer</a>
+          <a href="https://www.deezer.com" target="_blank" rel="noreferrer">
+            <Deezer size={18} color="white" /> Deezer
+          </a>
           <br></br>
         </h5>
       </Container>
 
+
       <MediaQuery query='(max-width: 800px)'>
         <NativeFooter>
-          {/* <SearchBar /> */}
-          <icon.Search size={28} color="#b1b1b1" />
+          { showSearchBar && <SearchBar /> } 
 
-          <Link href="/favorites" passHref>
-          <Favorites>
+          <div>
+            <icon.Search
+              size={28} 
+              color="#e1e1e1"
+              onClick={() => setShowSearchBar(!showSearchBar)}
+            />
+            <Link href="/favorites" passHref>
 
-            <icon.HeartFill size={28} color="#b1b1b1" />
+              <icon.HeartFill size={28} color="#e1e1e1" />
 
-            <MediaQuery query='(min-width: 1024px)'>
-              <h5>Favoritos</h5>
-            </MediaQuery>
+            </Link>
 
-          </Favorites>
-        </Link>
+            <icon.Globe size={28} color="#e1e1e1" />
 
-        <icon.Globe size={28} color="#b1b1b1" />
+          </div>
 
         </NativeFooter>
       </MediaQuery>
@@ -85,6 +90,14 @@ const Container = styled.footer`
     font-size: 12px;
     font-weight: 200;
   }
+
+  a {
+    color: white;
+  }
+
+  @media(max-width: 1024px) {
+    padding: 1.6rem 4rem;
+  }
 `;
 
 const Nav = styled.nav`
@@ -95,19 +108,31 @@ const Nav = styled.nav`
   display: flex;
   gap: 16px;
   padding: 4px 20px;
+
+  a {
+    color: #1e1c22;
+  }
 `;
 
 const NativeFooter = styled.footer`
-  background: white;
-  border-top: 1px solid grey;
+  background: #1c1c1c;
+  border-top: 1px solid #d1d1d1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-inline: 3rem;
+  flex-flow: row wrap;
+  justify-content: center;
   position: sticky;
   bottom: 0;
+  // padding-top: 1rem;
   width: 100%;
-  height: 4.5rem;
+
+  div {
+    align-items: inherit;
+    display: flex;
+    width: inherit;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+  }
 `;
 
 const Favorites = styled.div`
