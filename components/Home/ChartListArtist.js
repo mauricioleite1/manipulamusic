@@ -43,7 +43,7 @@ const Container = styled.div`
   border-radius: 28px;
   cursor: pointer;
   display: flex;
-  gap: 6px;
+  gap: 10px;
   height: 40px;
   padding-block: 8px;
   position: relative;
