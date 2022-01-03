@@ -46,16 +46,19 @@ const Footer = () => {
 
       <MediaQuery query='(max-width: 800px)'>
         <NativeFooter>
-          { showSearchBar && <SearchBar /> } 
+          {showSearchBar && <SearchBar />}
 
           <div>
-            <icon.HomeFill size={24} color="#6f6f6f" />
+            <Link href="/" passHref>
+              <icon.HomeFill size={24} color="#6f6f6f" />
+            </Link>
+            
             <icon.Search
-              size={24} 
+              size={24}
               color="#6f6f6f"
               onClick={() => setShowSearchBar(!showSearchBar)}
             />
-            
+
             <Link href="/favorites" passHref>
 
               <icon.HeartFill size={24} color="#6f6f6f" />
@@ -117,15 +120,17 @@ const Nav = styled.nav`
 `;
 
 const NativeFooter = styled.footer`
-  background: white;
-  display: flex;
   align-items: center;
+  background: white;
+  bottom: 0;
+  display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  position: sticky;
-  bottom: 0;
+  position: fixed;
   // padding-top: 1rem;
   width: 100%;
+  overflow-x: hidden;
+  z-index: 99;
 
   div {
     align-items: inherit;

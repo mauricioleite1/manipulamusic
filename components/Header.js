@@ -72,7 +72,7 @@ const Container = styled.header`
   padding-inline: 3rem;
   position: sticky;
   top: 0;
-  width: 100%;
+  // width: ;
   z-index: 99;
 
   @media(max-width: 1024px) {
@@ -80,10 +80,10 @@ const Container = styled.header`
   }
 
   @media(max-width: 800px) {
+    background-color: white;
     flex-flow: row wrap;
     height: auto;
     padding: 10px;
-    background-color: white;
   }
 `
 

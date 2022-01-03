@@ -80,15 +80,18 @@ export default HeroList;
 
 const Container = styled.section`
   align-items: center;
-  justify-content: center;
   background: #6667ab;
   background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
-  width: 100%;
-  padding-top: 4rem;
-
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 40px;
+  padding-top: 4rem;
+  width: 100%;
+
+  @media(max-width: 1024px) {
+    padding-top: 1rem;    
+  }
 `;
 
 const MaisTitle = styled.h2`
@@ -123,5 +126,18 @@ const List = styled.ul`
   position: relative;
   padding-top: 2.5rem;
 
-  audio { height: 20px; }
+  @media(max-width: 1024px) {
+    border-bottom: 1px solid lightgrey;
+    height: 30rem;
+    gap: 0;
+    width: 95vw;
+  }
+
+  audio { 
+    height: 20px;
+    
+    @media(max-width: 1024px) {
+      height: 2.5rem;
+    }
+  }
 `;

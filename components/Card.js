@@ -26,7 +26,7 @@ border-radius: 4px;
 display: flex;
 cursor: pointer;
 flex-direction: column;
-height: 9rem;
+height: 12rem;
 justify-content: flex-end;
 padding: 10px;
 transition: 0.2s ease;
@@ -49,4 +49,11 @@ h6 {
   font-size: 0.7rem;
   font-weight: 200;
 }
+
+@media(max-width: 1024px) {
+  // background: gold;
+  width: 90vw;
+  height: 14rem;
+}
+
 `;

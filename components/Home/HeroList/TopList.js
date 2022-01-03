@@ -33,6 +33,11 @@ const Container = styled.div`
   gap: 10px;
   position: relative;
   margin: auto;
+  
+  @media(max-width: 1024px) {
+    height: 43.8rem;
+    overflow: hidden;
+  }
 `;
 
 const Title = styled.h2`

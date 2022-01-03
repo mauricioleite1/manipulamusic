@@ -28,6 +28,7 @@ color: grey;
 display: flex;
 justify-content: center;
 min-height: 50vh;
+width: 100%;
 
   h4 {
     font-weight: 300;
