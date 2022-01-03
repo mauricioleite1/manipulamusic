@@ -16,7 +16,7 @@ body {
 }
 
 a {
-  color: rgb(27, 27, 27);
+  color: #1b1b1b;
   text-decoration: none;
   transition: 0.2s ease;
 }
@@ -31,6 +31,7 @@ h2 {
 
 ::-webkit-scrollbar {
   background: transparent;
+  height: 6px;
   width: 6px;
 }
 

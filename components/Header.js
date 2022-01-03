@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { Globe } from '@styled-icons/octicons/Globe'
+import { Globe } from '@styled-icons/octicons/Globe';
+import { HeartFill } from '@styled-icons/octicons/HeartFill';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setLanguage } from '../redux/userPreferencesSlice';
+import { GeneralText } from '../language';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
+import MediaQuery from "react-responsive";
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const [showLanguageOptions, setShowLanguageOptions] = useState(false);
+  const language = useAppSelector(state => state.userPreferences.language);
 
   const chooseLanguage = (lang) => {
     dispatch(setLanguage(lang));
@@ -19,26 +23,49 @@ const Header = () => {
   return (
     <Container>
       <Logo />
+      <MediaQuery query='(min-width: 800px)'>
+        <SearchBar />
 
-      <SearchBar />
+        <div style={{ display: 'flex', gap: '40px' }}>
+          <Link href="/favorites" passHref>
+            <Favorites>
+              <HeartFill size={14} />
 
-      <LanguageSelector>
-        {showLanguageOptions && <div>
-          <h5 onClick={() => chooseLanguage('en')}>
-            English
-          </h5>
-          <h5>/</h5>
-          <h5 onClick={() => chooseLanguage('ptBR')}>
-            Português (Br)
-          </h5>
-        </div>}
-        <Globe
-          size="14"
-          onClick={() => setShowLanguageOptions(!showLanguageOptions)}
-          style={{ cursor: 'pointer' }}
-        />
-      </LanguageSelector>
-    </Container>
+              <h5>{GeneralText.favorites[language]}</h5>
+
+            </Favorites>
+          </Link>
+
+          <LanguageSelector>
+            {showLanguageOptions && <div>
+              <h5
+                onClick={() => {
+                  chooseLanguage('en')
+                  localStorage.setItem('language', 'en')
+                }}>
+                English
+              </h5>
+              <h5>/</h5>
+              <h5
+                onClick={() => {
+                  chooseLanguage('ptBR')
+                  localStorage.setItem('language', 'ptBR')
+                }}>
+                Português (Br)
+              </h5>
+            </div>}
+            <Globe
+              size="14"
+              onClick={() => setShowLanguageOptions(!showLanguageOptions)}
+              style={{ cursor: 'pointer' }}
+            />
+          </LanguageSelector>
+
+
+        </div>
+      </MediaQuery>
+
+    </Container >
   );
 };
 
@@ -55,9 +82,26 @@ const Container = styled.header`
   padding-inline: 3rem;
   position: sticky;
   top: 0;
-  width: 100%;
   z-index: 99;
+
+  @media(max-width: 1024px) {
+    // background: gold;
+  }
+
+  @media(max-width: 800px) {
+    background-color: white;
+    flex-flow: row wrap;
+    height: auto;
+    padding: 10px;
+  }
 `
+
+const Favorites = styled.div`
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+`;
 
 const LanguageSelector = styled.div`
 align-items: center;

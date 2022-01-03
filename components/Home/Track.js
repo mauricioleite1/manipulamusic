@@ -1,20 +1,36 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useAppSelector } from '../../redux/app/hooks.ts';
+import { useAppSelector, useAppDispatch } from '../../redux/app/hooks.ts';
+import { setFavorites } from '../../redux/userPreferencesSlice';
 import { HomeText } from '../../language';
 import { Deezer } from '@styled-icons/fa-brands/Deezer';
 import { convertTime } from '../../services';
 import FavoriteButton from '../FavoriteButton';
 
-const Track = ({ position, title, link, name, duration, preview, lastElement, isLast }) => {
+const Track = ({ result, position = '', title, link, name, duration, preview, lastElement = '', isLast = null }) => {
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector(state => state.userPreferences.favorites);
   const language = useAppSelector(state => state.userPreferences.language);
   const cond = () => { if (isLast) { return lastElement } }
+
+  const addNewFavorite = () => {
+    const isFavorite = favorites.find(favorite => result.id === favorite.id);
+
+    if (!isFavorite) {
+      dispatch(setFavorites([...favorites, result]));
+      localStorage.setItem('favorites', JSON.stringify([...favorites, result]));
+    } else {
+      const removedItem = favorites.filter(favorite => result.id !== favorite.id);
+      dispatch(setFavorites(removedItem));
+      localStorage.setItem('favorites', JSON.stringify(removedItem));
+    }
+  }
 
   return (
     <Container ref={cond()}>
       <TrackTitle>
         <h6>{position}</h6>
-        <FavoriteButton />
+        <FavoriteButton onClick={addNewFavorite} result={result} />
         <div>
           <h5>{title}</h5>
           <a href={link} alt="" target="_blank" rel="noreferrer">
@@ -44,11 +60,11 @@ const Container = styled.li`
   background-color: rgb( 250, 250, 250, 0.4);
   background-image: 
     linear-gradient(
-      43deg, rgba(65, 89, 208, 0.2) 0%,
+      43deg, rgba(255, 255, 208, 0.4) 0%,
       rgba(200, 80, 192, 0.3) 46%,
       rgba(255, 205, 112, 0.3) 100%
     );
-  border-bottom: 2px solid rgb( 250, 250, 250, 0.7);
+  border-bottom: 3px solid rgb(250, 250, 250, 0.6);
   border-radius: 40px;
   display: flex;
   gap: 10px;
@@ -57,8 +73,15 @@ const Container = styled.li`
   width: 60rem;
 
   h6 {
-    color: grey;
+    color: #1d1d1d;
     font-weight: 300;
+  }
+
+  @media(max-width: 1024px) {
+    // background: gold;
+    flex-direction: column;
+    width: 100vw;
+    border-radius: 0;
   }
 `;
 
@@ -72,6 +95,11 @@ const TrackTitle = styled.div`
   h5 {
     color: rgb(57, 57, 57);
     font-weight: 600;
+
+    @media(max-width: 1024px) {
+      // background: gold;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -79,6 +107,10 @@ const Preview = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
+
+  @media(max-width: 1024px) {
+    // flex-direction: column;
+  }
 `;
 
 const DeezerButton = styled.button`

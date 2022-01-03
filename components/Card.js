@@ -1,18 +1,22 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Card = ({id, mainText, secondaryText = null, picture}) => {
-  return (
-    <Container
-      key={id}
-      style={{
-        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.9) 5%, transparent 35%), url(${picture})`
-      }}
-    >
-      <h4>{mainText}</h4>
-      {secondaryText && <h6>{secondaryText}</h6>}
+const Card = ({ id, mainText, secondaryText = null, picture, link }) => {
+  console.log(link)
 
-    </Container>
+  return (
+    <a href={link} target="_blank" rel="noreferrer">
+      <Container
+        key={id}
+        style={{
+          backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.9) 5%, transparent 35%), url(${picture})`
+        }}
+      >
+        <h4>{mainText}</h4>
+        {secondaryText && <h6>{secondaryText}</h6>}
+
+      </Container>
+    </a>
   )
 }
 
@@ -26,7 +30,7 @@ border-radius: 4px;
 display: flex;
 cursor: pointer;
 flex-direction: column;
-height: 9rem;
+height: 12rem;
 justify-content: flex-end;
 padding: 10px;
 transition: 0.2s ease;
@@ -49,4 +53,16 @@ h6 {
   font-size: 0.7rem;
   font-weight: 200;
 }
+
+@media(max-width: 1024px) {
+  // background: gold;
+  width: 20rem;
+  height: 28rem;
+}
+@media(max-width: 767px) {
+  // background: gold;
+  width: 90vw;
+  height: 18rem;
+}
+
 `;

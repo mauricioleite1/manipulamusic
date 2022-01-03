@@ -9,7 +9,13 @@ import ListsSection from '../components/Home/Lists';
 export default function Home() {
   const dispatch = useAppDispatch();
   const genre = useAppSelector(state => state.content.genre);
-  useEffect(() => { initialInfo(dispatch); }, [dispatch])
+  const results = useAppSelector(state => state.content.genre);
+
+  useEffect(() => {
+    if (!results || results >= 10) {
+      initialInfo(dispatch);
+    }
+  }, [dispatch, results])
 
   return (
     <Page>
@@ -23,6 +29,7 @@ export default function Home() {
 const Page = styled.div`
   background: white;
   margin: auto;
+  width: 100%;
 
   h5 {
     font-family: Inter;

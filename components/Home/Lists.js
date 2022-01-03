@@ -11,21 +11,20 @@ const ListsSection = () => {
   return (
     <Container>
       <Chart>
-        <h2>{HomeText.artists[language]}</h2>
-        {chart &&
-          chart.artists.data.map(({ id, position, picture_big, name, link }) => (
-            <ChartListArtist
-              position={position}
-              link={link}
-              mainText={name}
-              image={picture_big}
-              key={id}
-            />
-          ))}
+        {chart && <h2>{HomeText.artists[language]}</h2>}
+        {chart && chart.artists.data.map(({ id, position, picture_big, name, link }) => (
+          <ChartListArtist
+            position={position}
+            link={link}
+            mainText={name}
+            image={picture_big}
+            key={id}
+          />
+        ))}
       </Chart>
 
       <Chart>
-        <h2>{HomeText.albums[language]}</h2>
+        {chart && <h2>{HomeText.albums[language]}</h2>}
         {chart &&
           chart.albums.data.map(({ id, position, cover_big, artist, title, link }) => (
             <ChartListArtist
@@ -40,7 +39,7 @@ const ListsSection = () => {
       </Chart>
 
       <Chart>
-        <h2>{HomeText.playlists[language]}</h2>
+        {chart && <h2>{HomeText.playlists[language]}</h2>}
 
         {chart &&
           chart.playlists.data.map(({ id, position, picture_big, user, title, link }) => (
@@ -65,17 +64,34 @@ const Container = styled.div`
   align-items: flex-start;
   display: flex;
   justify-content: center;
-  background: blue;
   background-color: white;
   // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
-  gap: 100px;
+  width: 100%;
+
+  @media(max-width: 1024px) {
+    // background: gold;
+    // flex-direction: column;
+    flex-flow: row wrap;
+    padding: 0 1rem;
+    justify-content: space-between;
+   
+  }
 `;
 
 const Chart = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  gap: 10px;
+
+  @media(max-width: 1024px) {
+    padding-block: 40px;
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+  }
 
   h2 {
     margin-bottom: 20px;

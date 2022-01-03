@@ -55,6 +55,15 @@ const Container = styled.div`
   :hover {
     background: white;
   }
+
+  @media(max-width: 1024px) {
+    background: white;
+    flex: 1;
+    border-radius: 0;
+    height: 20px;
+    padding-inline: 100px;
+    width: 2rem;
+  }
 `;
 
 const Input = styled.input`

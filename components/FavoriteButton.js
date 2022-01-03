@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Heart } from '@styled-icons/octicons/Heart';
 import { HeartFill } from '@styled-icons/octicons/HeartFill';
+import { Trash } from '@styled-icons/octicons/Trash';
+import { useAppSelector } from '../redux/app/hooks.ts';
 
-const FavoriteButton = () => {
+const FavoriteButton = ({ onClick, result }) => {
+  const [showConfirmation, setShowConfirmation] = useState(false)
+  const favorites = useAppSelector(state => state.userPreferences.favorites);
+  const isFavorite = favorites.find(favorite => result.id === favorite.id);
+
   return (
-    <Button>
-      <Heart size={10} />
-    </Button>
+    <>
+      { showConfirmation && <Confirmation>
+        <RemoveItem
+          size={12} 
+          onClick={() => {
+            onClick()
+            setShowConfirmation(false)
+          }
+          }
+        />
+      </Confirmation> }
+      <Button>
+        {!isFavorite
+          ? <EmptyHeart size={12} onClick={onClick} />
+          : <FilledHeart size={12} onClick={() => setShowConfirmation(!showConfirmation)} />
+        }
+      </Button>
+    </>
   );
 };
 
@@ -35,3 +56,25 @@ const Button = styled.button`
   }
 `;
 
+const EmptyHeart = styled(Heart)`
+  color: #ff004c;
+  :active {
+    transform: scale(1.3);
+  }
+`;
+
+const FilledHeart = styled(HeartFill)`
+  color: #ff004c;
+  :active {
+    transform: scale(1.3);
+  }
+`;
+
+const Confirmation = styled.div`
+  display:flex;
+  // color: gold;
+`;
+
+const RemoveItem = styled(Trash)`
+  cursor: pointer;
+`;
