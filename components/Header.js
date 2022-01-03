@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Globe } from '@styled-icons/octicons/Globe'
+import { HeartFill } from '@styled-icons/octicons/HeartFill';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setLanguage } from '../redux/userPreferencesSlice';
 import Logo from './Logo';
@@ -19,6 +20,10 @@ const Header = () => {
   return (
     <Container>
       <Logo />
+      <div>
+        <HeartFill size={14}/>
+        <h4>Favoritos</h4>
+      </div>
 
       <SearchBar />
 
