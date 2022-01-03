@@ -21,11 +21,13 @@ const Header = () => {
     <Container>
       <Logo />
 
-      <div>
-        <HeartFill size={14}/>
-        <h4>Favoritos</h4>
-      </div>
-      
+      <Link href="/favorites" passHref>
+        <Favorites>
+          <HeartFill size={14} />
+          <h5>Favoritos</h5>
+        </Favorites>
+      </Link>
+
       <SearchBar />
 
       <LanguageSelector>
@@ -44,7 +46,7 @@ const Header = () => {
           style={{ cursor: 'pointer' }}
         />
       </LanguageSelector>
-    </Container>
+    </Container >
   );
 };
 
@@ -64,6 +66,13 @@ const Container = styled.header`
   width: 100%;
   z-index: 99;
 `
+
+const Favorites = styled.div`
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+`;
 
 const LanguageSelector = styled.div`
 align-items: center;
