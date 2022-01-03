@@ -38,17 +38,17 @@ const Container = styled.div`
 `;
 
 const ChartTrack = styled.div`
-  background-size: cover;
   align-items: flex-start;
+  background-size: cover;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 14px, rgba(0, 0, 0, 0.1) 0px 2px 8px;
-  justify-content: flex-end;
   display: flex;
   flex-direction: column;
   height: 16rem;
-  width: 16rem;
-  border-radius: 8px;
-  transition: 0.2s ease;
+  justify-content: flex-end;
   padding: 10px;
+  transition: 0.2s ease;
+  width: 16rem;
 
   :hover {
     opacity: 0.9;
@@ -56,16 +56,16 @@ const ChartTrack = styled.div`
 
   h4, h6 {
     color: white;
-    font-weight: 600;
-    font-size: 14px;
     font-family: Inter, Outfit, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
   }
 
   h6 {
     color: white;
-    font-weight: 200;
-    font-size: 0.7rem;
     font-family: Inter, Outfit, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 200;
   }
 `;
 

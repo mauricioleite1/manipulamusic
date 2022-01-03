@@ -41,8 +41,8 @@ export default Footer;
 
 const Container = styled.footer`
   align-items: center;
-  background: var(--footer-bg);
-  border-top: 1px solid #3e4143;
+  background: #1e1c22;
+  border-top: 4px solid #ff9811;
   color: whitesmoke;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@ const Nav = styled.nav`
   align-items: center;
   border-radius: 28px;
   background: white;
-  color: var(--footer-bg);
+  color: #1e1c22;
   display: flex;
   gap: 16px;
   padding: 4px 20px;
