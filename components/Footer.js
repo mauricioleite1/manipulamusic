@@ -12,7 +12,6 @@ const Footer = () => {
 
   return (
     <Container>
-
       <Logo />
 
       <Nav>

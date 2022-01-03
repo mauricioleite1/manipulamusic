@@ -6,6 +6,7 @@ import { setResults } from '../../../redux/contentSlice';
 import { HomeText } from '../../../language';
 import Track from '../Track';
 import TopList from './TopList';
+import LoadingSpinner from '../LoadingSpinner';
 
 const HeroList = ({ data }) => {
   const [loading, setLoading] = useState(false);
@@ -39,13 +40,18 @@ const HeroList = ({ data }) => {
 
   return (
     <Container>
-      {!isLoading && <TopList data={data} />}
+      {!isLoading 
+        ? <TopList data={data} />
+        : <LoadingSpinner />
+      
+      }
 
+      {/* <LoadingSpinner /> */}
       <List>
         <MaisTitle>
-          {!isLoading && resultsList.length === 10
-            ? HomeText.mostPlayed[language]
-            : isLoading ? 'Carregando' : `Resultados de ${searchInput}`
+          {!isLoading
+            && resultsList.length === 10
+            && HomeText.mostPlayed[language]
           }
         </MaisTitle>
 
@@ -64,7 +70,7 @@ const HeroList = ({ data }) => {
           />)
         )}
 
-        {isLoading && <h5>Buscando resultados, Favor aguardar</h5>}
+        {isLoading && <h4>Buscando resultados...</h4>}
       </List>
     </Container>
   )

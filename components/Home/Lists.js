@@ -11,21 +11,20 @@ const ListsSection = () => {
   return (
     <Container>
       <Chart>
-        <h2>{HomeText.artists[language]}</h2>
-        {chart &&
-          chart.artists.data.map(({ id, position, picture_big, name, link }) => (
-            <ChartListArtist
-              position={position}
-              link={link}
-              mainText={name}
-              image={picture_big}
-              key={id}
-            />
-          ))}
+        {chart && <h2>{HomeText.artists[language]}</h2>}
+        {chart && chart.artists.data.map(({ id, position, picture_big, name, link }) => (
+          <ChartListArtist
+            position={position}
+            link={link}
+            mainText={name}
+            image={picture_big}
+            key={id}
+          />
+        ))}
       </Chart>
 
       <Chart>
-        <h2>{HomeText.albums[language]}</h2>
+        {chart && <h2>{HomeText.albums[language]}</h2>}
         {chart &&
           chart.albums.data.map(({ id, position, cover_big, artist, title, link }) => (
             <ChartListArtist
@@ -40,7 +39,7 @@ const ListsSection = () => {
       </Chart>
 
       <Chart>
-        <h2>{HomeText.playlists[language]}</h2>
+        {chart && <h2>{HomeText.playlists[language]}</h2>}
 
         {chart &&
           chart.playlists.data.map(({ id, position, picture_big, user, title, link }) => (
