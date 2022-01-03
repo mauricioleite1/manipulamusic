@@ -44,7 +44,7 @@ yarn start:dev
 Logo após, para iniciar a parte de frontend,
 Deve-se utilizar o comando:
 ```bash
-yarn start:dev
+yarn dev
 ```
 
 Com ambos backend e frontend da aplicação iniciados, abra [http://localhost:3000](http://localhost:3000) em seu browser para visualizar e utilizar a aplicação.
