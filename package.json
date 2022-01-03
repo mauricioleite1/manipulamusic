@@ -5,12 +5,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:dev": "nodemon api/src/app.js"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
+    "@styled-icons/entypo-social": "^10.34.0",
+    "@styled-icons/fa-brands": "^10.38.0",
+    "@styled-icons/octicons": "^10.44.0",
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "eslint-config-airbnb": "^19.0.4",
+    "express": "^4.17.2",
     "next": "12.0.7",
+    "nodemon": "^2.0.15",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.6",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "eslint": "8.5.0",
