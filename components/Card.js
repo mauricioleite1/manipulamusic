@@ -21,16 +21,16 @@ export default Card;
 const Container = styled.div`
 align-items: flex-start;
 background-size: cover;
-border-radius: 8px;
-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 14px, rgba(0, 0, 0, 0.1) 0px 2px 8px;
+border-radius: 4px;
+// box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 14px, rgba(0, 0, 0, 0.1) 0px 2px 8px;
 display: flex;
 cursor: pointer;
 flex-direction: column;
-height: 16rem;
+height: 9rem;
 justify-content: flex-end;
 padding: 10px;
 transition: 0.2s ease;
-width: 16rem;
+width: 12rem;
 
 :hover {
   opacity: 0.9;

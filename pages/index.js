@@ -112,9 +112,8 @@ const ListsContainer = styled.div`
   display: flex;
   justify-content: center;
   background: blue;
-  background-color: #85FFBD;
-  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  background-color: white;
+  // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
   gap: 100px;
-  width: 100%;
 `;

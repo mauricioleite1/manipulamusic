@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ArrowDown } from '@styled-icons/octicons/ArrowDown';
-import { ArrowUp } from '@styled-icons/octicons/ArrowUp';
 import { useAppSelector } from '../../redux/app/hooks.ts';
 import Genre from './Genre';
 
@@ -22,11 +20,6 @@ const GenreSection = () => {
           />
         ))}
       </List>
-      
-      <button onClick={() => setShowMore(!showMore)}>
-        {!showMore ? <ArrowDown size={20} /> : <ArrowUp size={20} />}
-      </button>
-
     </Container>
   );
 };
@@ -35,13 +28,14 @@ export default GenreSection;
 
 const Container = styled.section`
   align-items: center;
+  background: #d4d4d4;
   display: flex;
   flex-direction: column;
   gap: 30px;
   justify-content: center;
   margin: auto;
-  padding: 30px;
-  width: 65%;
+  padding: 100px;
+  width: 100%;
 
   button {
     background: lightgrey;
@@ -60,6 +54,6 @@ const List = styled.section`
   flex-flow: row wrap;
   gap: 14px;
   justify-content: center;
-  height: 100px;
+  // height: 100px;
   overflow: hidden;
 `;

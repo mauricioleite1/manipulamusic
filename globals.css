@@ -28,3 +28,17 @@ footer a:hover {
 h2 {
   margin: 0;
 }
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50vw;
+}
+
+::-webkit-scrollbar-track {  
+  margin-top: 40px;
+}

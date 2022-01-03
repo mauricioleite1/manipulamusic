@@ -3,16 +3,15 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import {Globe} from '@styled-icons/octicons/Globe'
 import SearchBar from './SearchBar';
+import Logo from './Logo';
 
 const Header = () => {
   return (
     <Container>
-      <Link href="/" passHref>
-        <LogoContainer>manipula<strong>music</strong></LogoContainer>
-      </Link>
+      <Logo />
 
       <SearchBar />
-
+      
       <Globe size="14" />
     </Container>
   );
@@ -34,11 +33,3 @@ const Container = styled.header`
   width: 100%;
   z-index: 99;
 `
-const LogoContainer = styled.div`
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  letter-spacing: 0.1rem;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 1rem;
-`;

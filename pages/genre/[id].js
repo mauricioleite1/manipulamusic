@@ -22,7 +22,9 @@ const GenrePage = () => {
     <Page>
       <Breadcrumbs>
         <Link href="/" passHref>
-          <ReturnButton><ArrowLeft size={16} />Voltar</ReturnButton>
+          <ReturnButton>
+            <ArrowLeft size={16} />Voltar
+          </ReturnButton>
         </Link>
 
         <BreadcrumbsCategories>
@@ -81,7 +83,7 @@ const Breadcrumbs = styled.div`
   align-items: center;
   display: flex;
   height: 6rem;
-  gap: 10px;
+  gap: 20px;
   justify-content: flex-start;
   position: relative;
   padding-inline: 20px;
@@ -128,8 +130,6 @@ const ReturnButton = styled.div`
   cursor: pointer;
 `;
 
-
-
 const BreadcrumbsCategories = styled.div`
   // background: purple;
 
@@ -139,8 +139,8 @@ const BreadcrumbsCategories = styled.div`
 const Cards = styled.div`
   align-items: center;
   display: flex;
-  flex-flow: row wrap;
-  gap: 10px;
   justify-content: center;
-  width: 100%;
+  gap: 10px;
+  flex-wrap: wrap;
+
 `;
