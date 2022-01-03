@@ -7,7 +7,7 @@ import { Deezer } from '@styled-icons/fa-brands/Deezer';
 import { convertTime } from '../../services';
 import FavoriteButton from '../FavoriteButton';
 
-const Track = ({ result, position, title, link, name, duration, preview, lastElement, isLast }) => {
+const Track = ({ result, position = '', title, link, name, duration, preview, lastElement = null, isLast = null }) => {
   const dispatch = useAppDispatch();
   const favorites = useAppSelector(state => state.userPreferences.favorites);
   const language = useAppSelector(state => state.userPreferences.language);

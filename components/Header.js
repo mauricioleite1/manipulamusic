@@ -20,10 +20,12 @@ const Header = () => {
   return (
     <Container>
       <Logo />
-      <div>
-        <HeartFill size={14}/>
-        <h4>Favoritos</h4>
-      </div>
+      <Link href="/favorites" passHref>
+        <div>
+          <HeartFill size={14}/>
+          <h4>Favoritos</h4>
+        </div>
+      </Link>
 
       <SearchBar />
 

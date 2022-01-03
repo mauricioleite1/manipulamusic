@@ -7,9 +7,15 @@ import GenreSection from '../components/Home/GenreSection';
 import ListsSection from '../components/Home/Lists';
 
 export default function Home() {
+  const results = useAppSelector(state => state.content.resultsList)
   const dispatch = useAppDispatch();
   const genre = useAppSelector(state => state.content.genre);
-  useEffect(() => { initialInfo(dispatch); }, [dispatch])
+
+  useEffect(() => {
+    if (!results) {
+      initialInfo(dispatch);
+    }
+  }, [results, dispatch])
 
   return (
     <Page>
