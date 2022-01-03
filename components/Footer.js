@@ -49,18 +49,20 @@ const Footer = () => {
           { showSearchBar && <SearchBar /> } 
 
           <div>
+            <icon.HomeFill size={24} color="#6f6f6f" />
             <icon.Search
-              size={28} 
-              color="#e1e1e1"
+              size={24} 
+              color="#6f6f6f"
               onClick={() => setShowSearchBar(!showSearchBar)}
             />
+            
             <Link href="/favorites" passHref>
 
-              <icon.HeartFill size={28} color="#e1e1e1" />
+              <icon.HeartFill size={24} color="#6f6f6f" />
 
             </Link>
 
-            <icon.Globe size={28} color="#e1e1e1" />
+            <icon.Globe size={24} color="#6f6f6f" />
 
           </div>
 
@@ -115,8 +117,7 @@ const Nav = styled.nav`
 `;
 
 const NativeFooter = styled.footer`
-  background: #1c1c1c;
-  border-top: 1px solid #d1d1d1;
+  background: white;
   display: flex;
   align-items: center;
   flex-flow: row wrap;
