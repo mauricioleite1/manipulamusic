@@ -58,11 +58,11 @@ const Container = styled.li`
   background-color: rgb( 250, 250, 250, 0.4);
   background-image: 
     linear-gradient(
-      43deg, rgba(65, 89, 208, 0.2) 0%,
+      43deg, rgba(255, 255, 208, 0.4) 0%,
       rgba(200, 80, 192, 0.3) 46%,
       rgba(255, 205, 112, 0.3) 100%
     );
-  border-bottom: 2px solid rgb( 250, 250, 250, 0.7);
+  border-bottom: 3px solid rgb(250, 250, 250, 0.6);
   border-radius: 40px;
   display: flex;
   gap: 10px;
@@ -71,7 +71,7 @@ const Container = styled.li`
   width: 60rem;
 
   h6 {
-    color: grey;
+    color: #1d1d1d;
     font-weight: 300;
   }
 `;

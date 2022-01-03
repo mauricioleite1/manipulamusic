@@ -21,14 +21,15 @@ const Header = () => {
     <Container>
       <Logo />
 
+      <SearchBar />
+
+      <div style={{ display: 'flex', gap: '40px' }}>
       <Link href="/favorites" passHref>
         <Favorites>
           <HeartFill size={14} />
           <h5>Favoritos</h5>
         </Favorites>
       </Link>
-
-      <SearchBar />
 
       <LanguageSelector>
         {showLanguageOptions && <div>
@@ -46,6 +47,9 @@ const Header = () => {
           style={{ cursor: 'pointer' }}
         />
       </LanguageSelector>
+
+      </div>
+
     </Container >
   );
 };

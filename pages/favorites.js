@@ -48,7 +48,7 @@ const List = styled.ul`
   display: flex;
   flex-direction column;
   gap: 8px;
-  height: 30rem;
+  height: 50rem;
   list-style-type: none;
   margin: auto;
   overflow-x: hidden;

@@ -37,8 +37,6 @@ const HeroList = ({ data }) => {
     if (node) observer.current.observe(node)
   }, [loading, resultsList, page, searchInput, dispatch, hasMore]);
 
-  const top3 = (resultsList.slice(0, 5));
-
   return (
     <Container>
       {!isLoading && <TopList data={data} />}
