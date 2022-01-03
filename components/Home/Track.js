@@ -56,14 +56,8 @@ const Track = ({ result, position = '', title, link, name, duration, preview, la
 export default Track;
 
 const Container = styled.li`
-  align-items: center;
+  align-items: center;   
   background-color: rgb( 250, 250, 250, 0.4);
-  background-image: 
-    linear-gradient(
-      43deg, rgba(255, 255, 208, 0.4) 0%,
-      rgba(200, 80, 192, 0.3) 46%,
-      rgba(255, 205, 112, 0.3) 100%
-    );
   border-bottom: 3px solid rgb(250, 250, 250, 0.6);
   border-radius: 40px;
   display: flex;

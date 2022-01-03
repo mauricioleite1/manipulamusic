@@ -1,4 +1,6 @@
+import React from 'react';
 import axios from 'axios';
+import * as socialIcon from '@styled-icons/entypo-social';
 import { setChart, setGenreList, setResults } from '../redux/contentSlice';
 
 export const convertTime = (duration) => {
@@ -30,3 +32,9 @@ export const getGenreList = async (dispatch) => {
   const data = response.data;
   dispatch(setGenreList(data.data));
 }
+
+export const navOptions = [
+  {href: 'https://www.linkedin.com/in/mauricioleite', icon: <socialIcon.Linkedin size={16} />},
+  {href: 'https://www.github.com/mauricioleite1', icon: <socialIcon.Github size={16} />},
+  {href: 'https://www.instagram.com/mauricioleite1', icon: <socialIcon.Instagram size={16} />},
+]

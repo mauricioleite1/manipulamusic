@@ -1,21 +1,19 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
-import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
-import { initialInfo } from '../services';
-import Hero from '../components/Home/Hero';
-import GenreSection from '../components/Home/GenreSection';
-import ListsSection from '../components/Home/Lists';
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import { initialInfo } from "../services";
+import { useAppSelector, useAppDispatch } from "../redux/app/hooks.ts";
+import Hero from "../components/Home/Hero";
+import GenreSection from "../components/Home/GenreSection";
+import ListsSection from "../components/Home/Lists";
 
-export default function Home() {
+const Home = () => {
   const dispatch = useAppDispatch();
-  const genre = useAppSelector(state => state.content.genre);
-  const results = useAppSelector(state => state.content.genre);
+  const genre = useAppSelector((state) => state.content.genre);
+  const results = useAppSelector((state) => state.content.genre);
 
   useEffect(() => {
-    if (!results || results >= 10) {
-      initialInfo(dispatch);
-    }
-  }, [dispatch, results])
+    if (!results || results >= 10) { initialInfo(dispatch); }
+  }, [dispatch, results]);
 
   return (
     <Page>
@@ -24,7 +22,7 @@ export default function Home() {
       {genre && <GenreSection />}
     </Page>
   );
-};
+}
 
 const Page = styled.div`
   background: white;
@@ -36,3 +34,5 @@ const Page = styled.div`
     font-weight: 400;
   }
 `;
+
+export default Home;
