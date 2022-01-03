@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setLanguage } from '../redux/userPreferencesSlice';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
+import MediaQuery from "react-responsive";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -24,29 +25,33 @@ const Header = () => {
       <SearchBar />
 
       <div style={{ display: 'flex', gap: '40px' }}>
-      <Link href="/favorites" passHref>
-        <Favorites>
-          <HeartFill size={14} />
-          <h5>Favoritos</h5>
-        </Favorites>
-      </Link>
+        <Link href="/favorites" passHref>
+          <Favorites>
+            <HeartFill size={14} />
 
-      <LanguageSelector>
-        {showLanguageOptions && <div>
-          <h5 onClick={() => chooseLanguage('en')}>
-            English
-          </h5>
-          <h5>/</h5>
-          <h5 onClick={() => chooseLanguage('ptBR')}>
-            Português (Br)
-          </h5>
-        </div>}
-        <Globe
-          size="14"
-          onClick={() => setShowLanguageOptions(!showLanguageOptions)}
-          style={{ cursor: 'pointer' }}
-        />
-      </LanguageSelector>
+            <MediaQuery query='(min-width: 1024px)'>
+              <h5>Favoritos</h5>
+            </MediaQuery>
+
+          </Favorites>
+        </Link>
+
+        <LanguageSelector>
+          {showLanguageOptions && <div>
+            <h5 onClick={() => chooseLanguage('en')}>
+              English
+            </h5>
+            <h5>/</h5>
+            <h5 onClick={() => chooseLanguage('ptBR')}>
+              Português (Br)
+            </h5>
+          </div>}
+          <Globe
+            size="14"
+            onClick={() => setShowLanguageOptions(!showLanguageOptions)}
+            style={{ cursor: 'pointer' }}
+          />
+        </LanguageSelector>
 
       </div>
 
@@ -69,6 +74,17 @@ const Container = styled.header`
   top: 0;
   width: 100%;
   z-index: 99;
+
+  @media(max-width: 1024px) {
+    // background: gold;
+  }
+
+  @media(max-width: 800px) {
+    flex-flow: row wrap;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+  }
 `
 
 const Favorites = styled.div`

@@ -51,10 +51,10 @@ const Container = styled.div`
   padding-block: 8px;
   position: relative;
   transition: 0.42s ease-in-out;
-  width: 20rem;
+  width: 18rem;
 
   :hover {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(100, 40, 250, 0.2);
   }
 `;
 

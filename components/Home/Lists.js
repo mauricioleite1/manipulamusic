@@ -68,7 +68,6 @@ const Container = styled.div`
   background-color: white;
   // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
   padding-block: 20px;
-  gap: 100px;
 `;
 
 const Chart = styled.div`
