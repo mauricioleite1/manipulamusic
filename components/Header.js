@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { Globe } from '@styled-icons/octicons/Globe'
+import { Globe } from '@styled-icons/octicons/Globe';
+import { HeartFill } from '@styled-icons/octicons/HeartFill';
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks.ts';
 import { setLanguage } from '../redux/userPreferencesSlice';
 import Logo from './Logo';
@@ -22,6 +23,14 @@ const Header = () => {
 
       <SearchBar />
 
+      <div style={{ display: 'flex', gap: '40px' }}>
+      <Link href="/favorites" passHref>
+        <Favorites>
+          <HeartFill size={14} />
+          <h5>Favoritos</h5>
+        </Favorites>
+      </Link>
+
       <LanguageSelector>
         {showLanguageOptions && <div>
           <h5 onClick={() => chooseLanguage('en')}>
@@ -38,7 +47,10 @@ const Header = () => {
           style={{ cursor: 'pointer' }}
         />
       </LanguageSelector>
-    </Container>
+
+      </div>
+
+    </Container >
   );
 };
 
@@ -58,6 +70,13 @@ const Container = styled.header`
   width: 100%;
   z-index: 99;
 `
+
+const Favorites = styled.div`
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+`;
 
 const LanguageSelector = styled.div`
 align-items: center;
